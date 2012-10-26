@@ -21,7 +21,7 @@ $lang = $L = array(
 'Importer',
 
 'importer_module_description'				=>
-'Importer des entrées à partir de sources CSV, JSON et XML.',
+'Importer des entrÃ©es Ã  partir de sources CSV, JSON et XML.',
 
 'importer'									=>
 'Importer',
@@ -34,7 +34,7 @@ $lang = $L = array(
 // --------------------------------------------
 
 'importer_preferences' =>
-"Préférences",
+"PrÃ©fÃ©rences",
 
 'importer_homepage' =>
 "Page d'accueil",
@@ -53,22 +53,22 @@ $lang = $L = array(
 // --------------------------------------------
 
 'create_new_importer' =>
-"Créer un nouveau profil d'importation",
+"CrÃ©er un nouveau profil d'importation",
 
 'no_importer_profiles' =>
 "Aucun profil d'importation existant",
 
 'saved_imports' =>
-"Imports enregistrés",
+"Imports enregistrÃ©s",
 
 'importer_name' =>
 "Nom",
 
 'importer_edit' =>
-"Éditer", /** verb or noun ? */
+"Ã‰diter", /** verb or noun ? */
 
 'importer_datatype' =>
-"Type de données",
+"Type de donnÃ©es",
 
 'importer_cron_urls' =>
 "URLs CRON",
@@ -80,9 +80,9 @@ $lang = $L = array(
 "Traitement par lots",
 
 'importer_batch_processing_explaination' =>
-"Importer a une limite interne fixée à 100 éléments importés à la fois, et ce afin d'éviter de dépasser les ressources serveur.
-Si le nombre d'éléments à importer excède ce total, le traitement par lots est déclenché automatiquement.
-Afin d'utiliser le traitement par lots avec un travail CRON, vous devez définir un deuxième Cron afin de traiter les lots.",
+"Importer a une limite interne fixÃ©e Ã  100 Ã©lÃ©ments importÃ©s Ã  la fois, et ce afin d'Ã©viter de dÃ©passer les ressources serveur.
+Si le nombre d'Ã©lÃ©ments Ã  importer excÃ¨de ce total, le traitement par lots est dÃ©clenchÃ© automatiquement.
+Afin d'utiliser le traitement par lots avec un travail CRON, vous devez dÃ©finir un deuxiÃ¨me Cron afin de traiter les lots.",
 
 'right_click_to_copy' =>
 "clique droit pour copier",
@@ -91,10 +91,10 @@ Afin d'utiliser le traitement par lots avec un travail CRON, vous devez définir 
 "Supprimer",
 
 'importer_run_profile' =>
-"Exécuter",
+"ExÃ©cuter",
 
 'importer_run_now' =>
-"Exécuter maintenant",
+"ExÃ©cuter maintenant",
 
 'importer_profile_name' =>
 "Nom de profil",
@@ -103,28 +103,28 @@ Afin d'utiliser le traitement par lots avec un travail CRON, vous devez définir 
 "Instructions",
 
 'importer_instructions_subtext' =>
-"Tous les détails ou instructions que vous voudriez avoir sous la main au moment de réaliser des imports avec ce profil.",
+"Tous les dÃ©tails ou instructions que vous voudriez avoir sous la main au moment de rÃ©aliser des imports avec ce profil.",
 
 'importer_profile_deleted' =>
-"Profil Importer supprimé",
+"Profil Importer supprimÃ©",
 
 'importer_profiles_deleted' =>
-"%i% profils Importer supprimés",
+"%i% profils Importer supprimÃ©s",
 
 "profile_delete_question" =>
-"Êtes-vous certain de vouloir supprimer %i% %profils% ?",
+"ÃŠtes-vous certain de vouloir supprimer %i% %profils% ?",
 
 "action_can_not_be_undone" =>
-"Cette action ne peut pas être annulée.",
+"Cette action ne peut pas Ãªtre annulÃ©e.",
 
 'importer_profile_delete_confirm' =>
 "Confirmation de suppression de profil Importer",
 
 'manual_upload_no_cron' =>
-"Téléversement manuel, aucun Cron disponible",
+"TÃ©lÃ©versement manuel, aucun Cron disponible",
 
 'manual_import_form' =>
-"Import manuel à partir de",
+"Import manuel Ã  partir de",
 
 'importer_continue' =>
 "Continuer",
@@ -139,43 +139,43 @@ Afin d'utiliser le traitement par lots avec un travail CRON, vous devez définir 
 "Profil Importer",
 
 'importer_edit_profile' =>
-"Éditer le profil Importer",
+"Ã‰diter le profil Importer",
 
 'importer_new_profile' =>
 "Nouveau profil Importer",
 
 'importer_profile_updated' =>
-"Profil Importer mis à jour",
+"Profil Importer mis Ã  jour",
 
 'invalid_importer_profile_name' =>
 "Le nom de profil Importer soumis est invalide",
 
 'error_duplicate_profile_name' =>
-"Erreur : un doublon de nom de profil Importer a été soumis",
+"Erreur : un doublon de nom de profil Importer a Ã©tÃ© soumis",
 
 'success_importer_profile_name_updated' =>
-"Le nom et les instructions liés au profil Importer ont été mis à jour avec succès",
+"Le nom et les instructions liÃ©s au profil Importer ont Ã©tÃ© mis Ã  jour avec succÃ¨s",
 
 'success_importer_settings_updated' =>
-"ILes paramètres du profil Importer ont été mis à jour avec succès",
+"Les paramÃ¨tres du profil Importer ont Ã©tÃ© mis Ã  jour avec succÃ¨s",
 
 'invalid_importer_profile_id' =>
 "ID de profil Importer invalide",
 
 'invalid_importer_profile_datatype' =>
-"Le type de données soumis pour ce profil Importer est invalide",
+"Le type de donnÃ©es soumis pour ce profil Importer est invalide",
 
 'invalid_datatype_given' =>
-"Un type de données invalide a été fourni",
+"Un type de donnÃ©es invalide a Ã©tÃ© fourni",
 
 'invalid_datatype' =>
-"Type de données invalide",
+"Type de donnÃ©es invalide",
 
 'importer_channel' =>
 "Canal d'import",
 
 'importer_channel_subtext' =>
-"Le canal dans lequel cette source de données sera importée.",
+"Le canal dans lequel cette source de donnÃ©es sera importÃ©e.",
 
 'choose_channel' =>
 "Choisissez un canal",
@@ -187,14 +187,13 @@ Afin d'utiliser le traitement par lots avec un travail CRON, vous devez définir 
 "Source d'import",
 
 'choose_data_source' =>
-"Choisissez la source de données",
+"Choisissez la source de donnÃ©es",
 
 'importer_data_source' =>
-"Source de données",
+"Source de donnÃ©es",
 
 'importer_data_source_subtext' =>
-"Les données destinées à Importer peuvent être récupérées selon les méthodes listées ici. Choisissez-en une et renseignez les détails requis. Un essai
-sera effectué pour récupérer le fichier quand vous cliquerez sur Soumettre.",
+"Les donnÃ©es destinÃ©es Ã  Importer peuvent Ãªtre rÃ©cupÃ©rÃ©es selon les mÃ©thodes listÃ©es ici. Choisissez-en une et renseignez les dÃ©tails requis. Un essai sera effectuÃ© pour rÃ©cupÃ©rer le fichier quand vous cliquerez sur Soumettre.",
 
 'importer_data_source_filename' =>
 "Fichier local",
@@ -209,31 +208,31 @@ sera effectué pour récupérer le fichier quand vous cliquerez sur Soumettre.",
 "Fichier via SFTP",
 
 'choose_data_source' =>
-"Choisissez la source de données",
+"Choisissez la source de donnÃ©es",
 
 'importer_local_filename' =>
 "Nom de fichier local",
 
 'importer_local_filename_subtext' =>
-"Le chemin d'enregistrement absolu du fichier placé sur votre serveur.",
+"Le chemin absolu d'enregistrement du fichier placÃ© sur votre serveur.",
 
 'importer_remote_url' =>
 "URL distante",
 
 'importer_remote_url_subtext' =>
-"L'adresse URL complète du fichier. http:// et https:// sont tous les deux supportés.",
+"L'adresse URL complÃ¨te du fichier. http:// et https:// sont tous les deux supportÃ©s.",
 
 'importer_http_auth_username' =>
 "Identifiant (nom d'utilisateur) pour l'authentification HTTP",
 
 'importer_http_auth_username_subtext' =>
-"Le fichier distant est peut-être protégé par une authentification HTTP. Note : pour des raisons de sécurité, l'identifiant et le mot de passe seront encryptés AVANT d'être stockés dans la base de données ExpressionEngine.",
+"Le fichier distant est peut-Ãªtre protÃ©gÃ© par une authentification HTTP. Note : pour des raisons de sÃ©curitÃ©, l'identifiant et le mot de passe seront encryptÃ©s AVANT d'Ãªtre stockÃ©s dans la base de donnÃ©es ExpressionEngine.",
 
 'importer_http_auth_password' =>
 "Mot de passe authentification HTTP",
 
 'importer_ftp_host' =>
-"Hôte",
+"HÃ´te",
 
 'importer_ftp_username' =>
 "Identifiant",
@@ -242,7 +241,7 @@ sera effectué pour récupérer le fichier quand vous cliquerez sur Soumettre.",
 "Mot de passe",
 
 'importer_ftp_password_subtext' =>
-"Note : pour des raisons de sécurité, l'identifiant et le mot de passe seront encryptés AVANT d'être stockés dans la base de données ExpressionEngine.",
+"Note : pour des raisons de sÃ©curitÃ©, l'identifiant et le mot de passe seront encryptÃ©s AVANT d'Ãªtre stockÃ©s dans la base de donnÃ©es ExpressionEngine.",
 
 'importer_ftp_port' =>
 "Port",
@@ -251,25 +250,25 @@ sera effectué pour récupérer le fichier quand vous cliquerez sur Soumettre.",
 "Chemin sur le serveur distant",
 
 'importer_manual_upload' =>
-"Téléversement manuel",
+"TÃ©lÃ©versement manuel",
 
 'importer_data_source_manual_upload' =>
-"Téléverser manuellement le fichier",
+"TÃ©lÃ©verser manuellement le fichier",
 
 'importer_manual_upload' =>
-"Fichier téléversé manuellement",
+"Fichier tÃ©lÃ©versÃ© manuellement",
 
 'importer_manual_upload_subtext' =>
-"Cette option signifie qu'à chaque fois que vous utiliserez ce profil Importer, vous devrez téléverser manuellement un fichier à partir de votre ordinateur local.",
+"Cette option signifie qu'Ã  chaque fois que vous utiliserez ce profil Importer, vous devrez tÃ©lÃ©verser manuellement un fichier Ã  partir de votre ordinateur local.",
 
 'importer_ftp_test' =>
 "Tester la connexion FTP/SFTP",
 
 'ftp_perform_connection_test' =>
-"Réaliser un test de connexion",
+"RÃ©aliser un test de connexion",
 
 'importer_ftp_test_subtext' =>
-"Une connexion de test va être réalisée en utilisant AJAX et le fichier sera détecté (mais pas téléchargé) afin de s'assurer que vos paramètres sont opérationnels.",
+"Une connexion de test va Ãªtre rÃ©alisÃ©e en utilisant AJAX et le fichier sera dÃ©tectÃ© (mais pas tÃ©lÃ©chargÃ©) afin de s'assurer que vos paramÃ¨tres sont opÃ©rationnels.",
 
 'import_location' =>
 "Emplacement d'importation",
@@ -282,50 +281,50 @@ sera effectué pour récupérer le fichier quand vous cliquerez sur Soumettre.",
 "Canal soumis invalide",
 
 'invalid_channel_permissions' =>
-"Vous n'avez pas les droits nécessaires pour poster dans le canal soumis et ne pouvez donc pas y réaliser un import.",
+"Vous n'avez pas les droits nÃ©cessaires pour poster dans le canal soumis et ne pouvez donc pas y rÃ©aliser un import.",
 
 'invalid_data_source_submitted' =>
-"Source de données soumise invalide. Merci de vous assurer que vous avez sélectionné une source de données et que vous avez renseigné les champs requis.",
+"Source de donnÃ©es soumise invalide. Merci de vous assurer que vous avez sÃ©lectionnÃ© une source de donnÃ©es et que vous avez renseignÃ© les champs requis.",
 
 'invalid_filename_fullpath' =>
-"Chemin du fichier soumis invalide. Merci de vous assurer que c'est un chemin de serveur absolu.",
+"Chemin du fichier soumis invalide. Merci de vous assurer que c'est un chemin absolu de serveur.",
 
 'invalid_filename_not_found' =>
-"Chemin du fichier soumis invalide. Le fichier n'a pas été trouvé sur le serveur.",
+"Chemin du fichier soumis invalide. Le fichier n'a pas Ã©tÃ© trouvÃ© sur le serveur.",
 
 'invalid_remote_url_not_found' =>
-"URL distante soumise invalide. Une tentative pour récupérer le fichier a échoué.",
+"URL distante soumise invalide. Une tentative pour rÃ©cupÃ©rer le fichier a Ã©chouÃ©.",
 
 'problem_retreiving_file_data' =>
-"Problème lors de la récupération des données du fichier.",
+"ProblÃ¨me lors de la rÃ©cupÃ©ration des donnÃ©es du fichier.",
 
 'source_data_contained_invalid_data' =>
-"Le fichier source contenait soit aucune donnée, soit des données invalides.",
+"Le fichier source contenait soit aucune donnÃ©e, soit des donnÃ©es invalides.",
 
 'failure_downloading_remote_file' =>
-"Échec lors du téléchargement du fichier distant à partir du serveur.",
+"Ã‰chec lors du tÃ©lÃ©chargement du fichier distant Ã  partir du serveur.",
 
 'unable_to_create_unzipping_directory' =>
-"Impossible de créer un répertoire pour dézipper votre fichier dans le répertoire de cache d'ExpressionEngine. Merci de vérifier vos droits d'écriture sur le dossier concerné.",
+"Impossible de crÃ©er un rÃ©pertoire pour dÃ©zipper votre fichier dans le rÃ©pertoire de cache d'ExpressionEngine. Merci de vÃ©rifier vos droits d'Ã©criture sur le dossier concernÃ©.",
 
 'unable_to_create_importer_directory' =>
-"Impossible de créer un répertoire pour stocker les fichiers de données Importer dans le cache d'ExpressionEngine. Merci de vérifier vos droits d'écriture sur le dossier concerné.",
+"Impossible de crÃ©er un rÃ©pertoire pour stocker les fichiers de donnÃ©es Importer dans le cache d'ExpressionEngine. Merci de vÃ©rifier vos droits d'Ã©criture sur le dossier concernÃ©.",
 
 'error_unable_to_read_data_file' =>
-"Erreur : impossible de lire le fichier de données.",
+"Erreur : impossible de lire le fichier de donnÃ©es.",
 
 'importer_memory_usage_warning' =>
-"Importer a déterminé que la taille de la source de données est trop importante pour que votre serveur la prenne en charge.",
+"Importer a dÃ©terminÃ© que la taille de la source de donnÃ©es est trop importante pour que votre serveur la prenne en charge.",
 
 // --------------------------------------------
 //  Settings Form - GLOBAL
 // --------------------------------------------
 
 'invalid_data_received' =>
-"Les données reçues de votre source de données n'étaient pas valides et n'ont pas pu être lues.",
+"Les donnÃ©es reÃ§ues de votre source de donnÃ©es n'Ã©taient pas valides et n'ont pas pu Ãªtre lues.",
 
 'invald_content_type_settings' =>
-"Paramètres de type de contenu invalides",
+"ParamÃ¨tres de type de contenu invalides",
 
 'importer_notifications' =>
 "Notifications",
@@ -334,13 +333,13 @@ sera effectué pour récupérer le fichier quand vous cliquerez sur Soumettre.",
 "Courriels",
 
 'importer_notification_emails_subtext' =>
-"Séparer les adresses multiples avec des virgules ou des sauts de ligne.",
+"SÃ©parer les adresses multiples avec des virgules ou des sauts de ligne.",
 
 'importer_notification_cc' =>
 "CC",
 
 'importer_notification_cc_subtext' =>
-"Séparer les adresses multiples avec des virgules ou des sauts de ligne.",
+"SÃ©parer les adresses multiples avec des virgules ou des sauts de ligne.",
 
 'importer_notification_subject' =>
 "Objet",
@@ -359,31 +358,31 @@ sera effectué pour récupérer le fichier quand vous cliquerez sur Soumettre.",
 {total_inserted}, {total_updated}, {entries_deleted}",
 
 'importer_notification_rules' =>
-"Règles",
+"RÃ¨gles",
 
 'importer_notification_rules_disabled' =>
 "Ne pas envoyer de courriel",
 
 'importer_notification_rules_start' =>
-"Envoyer un courriel au début de l'importation",
+"Envoyer un courriel au dÃ©but de l'importation",
 
 'importer_notification_rules_end' =>
-"Envoyer un courriel à la fin de l'importation",
+"Envoyer un courriel Ã  la fin de l'importation",
 
 'importer_notification_rules_start_end' =>
-"Envoyer un courriel au début et à la fin de l'importation",
+"Envoyer un courriel au dÃ©but et Ã  la fin de l'importation",
 
 'importer_element' =>
-"Élément",
+"Ã‰lÃ©ment",
 
 'importer_default_value' =>
-"Valeur par défaut",
+"Valeur par dÃ©faut",
 
 'importer_modal_save' =>
 "Enregistrer",
 
 'save_and_do_import' =>
-"Enregistrer et réaliser l'import",
+"Enregistrer et rÃ©aliser l'import",
 
 // --------------------------------------------
 //  Import Log
@@ -396,7 +395,7 @@ sera effectué pour récupérer le fichier quand vous cliquerez sur Soumettre.",
 "Date",
 
 'import_details' =>
-"Détails",
+"DÃ©tails",
 
 'no_imports_logged' =>
 "Aucune importation dans le fichier de log",
@@ -405,53 +404,53 @@ sera effectué pour récupérer le fichier quand vous cliquerez sur Soumettre.",
 "Supprimer les fichiers de log",
 
 "logs_delete_question" =>
-"Êtes-vous certain de vouloir supprimer %i% fichiers de log?",
+"ÃŠtes-vous certain de vouloir supprimer %i% fichiers de log ?",
 
 "log_delete_question" =>
-"Êtes-vous certain de vouloir supprimer ce fichier de log ?",
+"ÃŠtes-vous certain de vouloir supprimer ce fichier de log ?",
 
 'importer_logs_delete_confirm' =>
-"Confirmation de suppression de fichier de log Importer",
+"Confirmation de suppression du fichier de log Importer",
 
 'importer_log_deleted' =>
-"Fichier de log Importer supprimé",
+"Fichier de log Importer supprimÃ©",
 
 'importer_logs_deleted' =>
-"%i% fichiers de log Importer supprimés",
+"%i% fichiers de log Importer supprimÃ©s",
 
 // --------------------------------------------
 //  AJAX Connection Test
 // --------------------------------------------
 
 'error_ajax_request' =>
-"Erreur : la requête AJAX a échoué",
+"Erreur : la requÃªte AJAX a Ã©chouÃ©",
 
 'error_importer_ftp_test' =>
-"Erreur : le test de connexion FTP/SFTP a échoué",
+"Erreur : le test de connexion FTP/SFTP a Ã©chouÃ©",
 
 'invalid_or_missing_fields' =>
-"Champs invalides ou manquants. Merci de vous assurer que tous les champs ont bien été renseignés.",
+"Champs invalides ou manquants. Merci de vous assurer que tous les champs ont bien Ã©tÃ© renseignÃ©s.",
 
 'ftp_file_does_not_exist' =>
 "FTP : le fichier n'existe pas",
 
 'ftp_ssl_not_supported' =>
-"Les connexions SSL ne sont pas supportées par votre serveur.",
+"Les connexions SSL ne sont pas supportÃ©es par votre serveur.",
 
 'ftp_unable_to_connect' =>
-"Impossible de créer une connexion avec le serveur FTP.",
+"Impossible de crÃ©er une connexion avec le serveur FTP.",
 
 'ftp_unable_to_login' =>
-"Impossible de se connecter au serveur FTP avec les données d'identification soumises.",
+"Impossible de se connecter au serveur FTP avec les donnÃ©es d'identification soumises.",
 
 'ftp_bad_local_path' =>
-"Le chemin local fourni pour télécharger le(s) fichier(s) FTP est erroné.",
+"Le chemin local fourni pour tÃ©lÃ©charger le(s) fichier(s) FTP est erronÃ©.",
 
 'ftp_local_path_not_writable' =>
-"Le chemin local fourni pour télécharger le(s) fichier(s) FTP n'est pas inscriptible.",
+"Le chemin local fourni pour tÃ©lÃ©charger le(s) fichier(s) FTP n'est pas inscriptible.",
 
 'ftp_bad_local_path' =>
-"Le chemin local fourni n'est pas accepté par la bibliothèque FTP.",
+"Le chemin local fourni n'est pas acceptÃ© par la bibliothÃ¨que FTP.",
 
 'ftp_bad_remote_path' =>
 "Le chemin distant fourni n'est pas valide.",
@@ -460,40 +459,40 @@ sera effectué pour récupérer le fichier quand vous cliquerez sur Soumettre.",
 "Le chemin du fichier distant fourni n'est pas valide.",
 
 'ftp_unable_to_download' =>
-"Impossible de télécharger le fichier à partir de votre serveur FTP.",
+"Impossible de tÃ©lÃ©charger le fichier Ã  partir de votre serveur FTP.",
 
 'ftp_file_does_not_exist' =>
 "Le fichier ne semble pas exister sur votre serveur FTP.",
 
 'error_sftp_connection_failure' =>
-"Échec de la connexion au serveur SFTP",
+"Ã‰chec de la connexion au serveur SFTP.",
 
 'error_sftp_file_failure' =>
 "Impossible de trouver le fichier sur le serveur.",
 
 'success_importer_ftp_test' =>
-"Test de connexion réussi !",
+"Test de connexion rÃ©ussi !",
 
 'connection_test_successful_file_found' =>
-"Le test de connexion a fonctionné et le fichier a été trouvé sur le serveur.",
+"Le test de connexion a fonctionnÃ© et le fichier a Ã©tÃ© trouvÃ© sur le serveur.",
 
 'modal_close_button' =>
 "Fermer",
 
 'beginning_connection_test' =>
-"Début du test de connexion",
+"DÃ©but du test de connexion",
 
 'connection_test_underway_please_standby' =>
-"Votre test de connexion FTP/SFTP est en cours. Merci de patienter, la confirmation pourra prendre jusqu'à 15 secondes.",
+"Votre test de connexion FTP/SFTP est en cours. Merci de patienter, la confirmation pourra prendre jusqu'Ã  15 secondes.",
 
 'modal_press_esc_to_close' =>
-"Appuyer sur la touche ESC/Échap pour fermer la fenêtre.",
+"Appuyer sur la touche ESC/Ã‰chap pour fermer la fenÃªtre.",
 
 'modal_press_esc_to_close_and_discard' =>
-"Appuyer sur la touche ESC/Échap pour fermer la fenêtre et abandonner les modifications.",
+"Appuyer sur la touche ESC/Ã‰chap pour fermer la fenÃªtre et abandonner les modifications.",
 
 'additional_data_type_fields' =>
-"Champs additionnels de type de données",
+"Champs additionnels de type de donnÃ©es",
 
 // --------------------------------------------
 //  Setting Submission Errors - GLOBAL
@@ -513,71 +512,71 @@ sera effectué pour récupérer le fichier quand vous cliquerez sur Soumettre.",
 // --------------------------------------------
 
 'successful_import' =>
-"Import réussi",
+"Import rÃ©ussi",
 
 'import_was_successfully_completed' =>
-"L'import a été effectué dans sa totalité et sans erreur.",
+"L'import a Ã©tÃ© effectuÃ© dans sa totalitÃ© et sans erreur.",
 
 'failure_of_import' =>
-"Échec de l'import",
+"Ã‰chec de l'import",
 
 'importer_invalid_batch' =>
-"Lot demandé invalide",
+"Lot demandÃ© invalide",
 
 'batch_import_started' =>
-"Le processus d'importation en lot a débuté avec succès",
+"Le processus d'importation en lot a dÃ©butÃ© avec succÃ¨s",
 
 'no_batches_to_process' =>
-"Aucun lot à traiter",
+"Aucun lot Ã  traiter",
 
 // --------------------------------------------
 //  Statistics
 // --------------------------------------------
 
 'entries_inserted' =>
-"Entrées insérées",
+"EntrÃ©es insÃ©rÃ©es",
 
 'entries_updated' =>
-"Entrées mises à jour",
+"EntrÃ©es mises Ã  jour",
 
 'entries_deleted' =>
-"Entrées supprimées",
+"EntrÃ©es supprimÃ©es",
 
 'deleted_entries' =>
-"Entrées supprimées",
+"EntrÃ©es supprimÃ©es",
 
 'total_entries' =>
-"Total des entrées",
+"Total des entrÃ©es",
 
 'entry_ids' =>
-"IDs des entrées",
+"IDs des entrÃ©es",
 
 'inserted_entry_ids' =>
-"IDs des entrées insérées",
+"IDs des entrÃ©es insÃ©rÃ©es",
 
 'updated_entry_ids' =>
-"IDs des entrées mises à jour",
+"IDs des entrÃ©es mises Ã  jour",
 
 'author_ids' =>
 "IDs des auteurs",
 
 'debugging' =>
-"Débogage",
+"DÃ©bogage",
 
 'start_time' =>
-"Heure de début",
+"Heure de dÃ©but",
 
 'end_time' =>
 "Heure de fin",
 
 'run_time' =>
-"Durée d'exécution",
+"DurÃ©e d'exÃ©cution",
 
 'site_id' =>
 "ID du site",
 
 'number_of_queries' =>
-"Nombre de requêtes",
+"Nombre de requÃªtes",
 
 // -------------------------------------
 //	Batch Import
@@ -587,20 +586,20 @@ sera effectué pour récupérer le fichier quand vous cliquerez sur Soumettre.",
 "Fonction d'import en lot",
 
 'importer_batch_purpose' =>
-"Ceci va réaliser les imports sous forme de lots et vous serez prévenu une fois l'import terminé.
-Cliquer sur 'Réaliser l'Import' pour démarrer.",
+"Ceci va rÃ©aliser les imports sous forme de lots et vous serez prÃ©venu une fois l'import terminÃ©.
+Cliquer sur 'RÃ©aliser l'Import' pour dÃ©marrer.",
 
 'importer_perform_import' =>
-"Réaliser l'Import",
+"RÃ©aliser l'Import",
 
 "performing_import_for_batch_" =>
 "En cours d'import pour le lot : ",
 
 'importer_percent_completed' =>
-"Pourcentage achevé",
+"Pourcentage achevÃ©",
 
 'importer_number_of_batches_imported' =>
-"Nombre de lots importés",
+"Nombre de lots importÃ©s",
 
 'importer_pause' =>
 "Pause",
@@ -609,16 +608,16 @@ Cliquer sur 'Réaliser l'Import' pour démarrer.",
 "Reprendre",
 
 'return_to_importer_homepage' =>
-"Vous pouvez désormais retourner sur la page d'accueil d'Importer.",
+"Vous pouvez dÃ©sormais retourner sur la Page d'accueil d'Importer.",
 
 'importer_import_complete' =>
-"Import terminé",
+"Import terminÃ©",
 
 'importer_invalid_values' =>
-"Valeurs reçues invalides",
+"Valeurs reÃ§ues invalides",
 
 'importer_batch_number_' =>
-"Lot n°",
+"Lot nÂ°",
 
 //----------------------------------------
 //  Errors
@@ -628,36 +627,36 @@ Cliquer sur 'Réaliser l'Import' pour démarrer.",
 "Demande invalide",
 
 'importer_module_disabled' =>
-"Le module Importer est actuellement désactivé. Merci de vous assurer qu'il est installé et à jour
-en vous rendant sur le panneau de contrôle du module situé dans le Panneau de Contrôle ExpressionEngine",
+"Le module Importer est actuellement dÃ©sactivÃ©. Merci de vous assurer qu'il est installÃ© et Ã  jour
+en vous rendant sur le panneau de contrÃ´le du module situÃ© dans le Panneau de ContrÃ´le ExpressionEngine",
 
 'disable_module_to_disable_extension' =>
-"Pour désactiver cette extension, vous devez désactiver son <a href='%url%'>module</a> correspondant.",
+"Pour dÃ©sactiver cette extension, vous devez dÃ©sactiver son <a href='%url%'>module</a> correspondant.",
 
 'enable_module_to_enable_extension' =>
 "Pour activer cette extension, vous devez installer son <a href='%url%'>module</a> correspondant.",
 
 'cp_jquery_requred' =>
-"L'extension 'jQuery pour le Panneau de Contrôle' doit être <a href='%extensions_url%'>activée</a> pour utiliser ce module.",
+"L'extension 'jQuery pour le Panneau de ContrÃ´le' doit Ãªtre <a href='%extensions_url%'>activÃ©e</a> pour utiliser ce module.",
 
 //----------------------------------------
 //  Update routine
 //----------------------------------------
 
 'update_importer_module' =>
-"Mettre à jour le module Importer",
+"Mettre Ã  jour le module Importer",
 
 'importer_update_message' =>
-"Vous avez récemment télechargé une nouvelle version d'Importer, merci de cliquer ici afin d'exécuter le script de mise à jour.",
+"Vous avez rÃ©cemment tÃ©lechargÃ© une nouvelle version d'Importer, merci de cliquer ici afin d'exÃ©cuter le script de mise Ã  jour.",
 
 "update_successful" =>
-"Le module a été mis à jour avec succès.",
+"Le module a Ã©tÃ© mis Ã  jour avec succÃ¨s.",
 
 "update_failure" =>
-"Une erreur s'est produite lors de la tentative de mise à jour du module vers la dernière version.",
+"Une erreur s'est produite lors de la tentative de mise Ã  jour du module vers la derniÃ¨re version.",
 
 'required_field_was_empty' =>
-"Un champ obligatoire est resté vide, merci de revenir en arrière et de renseigner TOUS les champs.",
+"Un champ obligatoire est restÃ© vide, merci de revenir en arriÃ¨re et de renseigner TOUS les champs.",
 
 
 // END
