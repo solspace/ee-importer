@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
  /**
  * Solspace - Importer
@@ -59,7 +59,7 @@ $lang = $L = array(
 "Aucun profil d'importation existant",
 
 'saved_imports' =>
-"Imports enregistrés",
+"Importations enregistrées",
 
 'importer_name' =>
 "Nom",
@@ -80,9 +80,9 @@ $lang = $L = array(
 "Traitement par lots",
 
 'importer_batch_processing_explaination' =>
-"Importer a une limite interne fixée à 100 éléments importés à la fois, et ce afin d'éviter de dépasser les ressources serveur.
+"Importer a une limite interne fixée à 100 éléments importables simultanément, et ce afin d'éviter de dépasser les ressources serveur.
 Si le nombre d'éléments à importer excède ce total, le traitement par lots est déclenché automatiquement.
-Afin d'utiliser le traitement par lots avec un travail CRON, vous devez définir un deuxième Cron afin de traiter les lots.",
+Afin d'utiliser le traitement par lots avec un travail Cron, vous devez définir un deuxième Cron pour traiter les lots.",
 
 'right_click_to_copy' =>
 "clique droit pour copier",
@@ -103,7 +103,7 @@ Afin d'utiliser le traitement par lots avec un travail CRON, vous devez définir
 "Instructions",
 
 'importer_instructions_subtext' =>
-"Tous les détails ou instructions que vous voudriez avoir sous la main au moment de réaliser des imports avec ce profil.",
+"Tous les détails ou instructions que vous voudriez avoir sous la main au moment de réaliser des importations avec ce profil.",
 
 'importer_profile_deleted' =>
 "Profil Importer supprimé",
@@ -229,7 +229,7 @@ Afin d'utiliser le traitement par lots avec un travail CRON, vous devez définir
 "Le fichier distant est peut-être protégé par une authentification HTTP. Note : pour des raisons de sécurité, l'identifiant et le mot de passe seront encryptés AVANT d'être stockés dans la base de données ExpressionEngine.",
 
 'importer_http_auth_password' =>
-"Mot de passe authentification HTTP",
+"Mot de passe d'authentification HTTP",
 
 'importer_ftp_host' =>
 "Hôte",
@@ -305,7 +305,7 @@ Afin d'utiliser le traitement par lots avec un travail CRON, vous devez définir
 "Échec lors du téléchargement du fichier distant à partir du serveur.",
 
 'unable_to_create_unzipping_directory' =>
-"Impossible de créer un répertoire pour dézipper votre fichier dans le répertoire de cache d'ExpressionEngine. Merci de vérifier vos droits d'écriture sur le dossier concerné.",
+"Impossible de créer un répertoire pour décompresser votre fichier dans le répertoire de cache d'ExpressionEngine. Merci de vérifier vos droits d'écriture sur le dossier concerné.",
 
 'unable_to_create_importer_directory' =>
 "Impossible de créer un répertoire pour stocker les fichiers de données Importer dans le cache d'ExpressionEngine. Merci de vérifier vos droits d'écriture sur le dossier concerné.",
@@ -333,13 +333,13 @@ Afin d'utiliser le traitement par lots avec un travail CRON, vous devez définir
 "Courriels",
 
 'importer_notification_emails_subtext' =>
-"Séparer les adresses multiples avec des virgules ou des sauts de ligne.",
+"Séparer les adresses multiples avec des virgules ou des retour à la ligne.",
 
 'importer_notification_cc' =>
 "CC",
 
 'importer_notification_cc_subtext' =>
-"Séparer les adresses multiples avec des virgules ou des sauts de ligne.",
+"Séparer les adresses multiples avec des virgules ou des retours à la ligne.",
 
 'importer_notification_subject' =>
 "Objet",
@@ -483,7 +483,7 @@ Afin d'utiliser le traitement par lots avec un travail CRON, vous devez définir
 "Début du test de connexion",
 
 'connection_test_underway_please_standby' =>
-"Votre test de connexion FTP/SFTP est en cours. Merci de patienter, la confirmation pourra prendre jusqu'à 15 secondes.",
+"Votre test de connexion FTP/SFTP est en cours. Merci de patienter, la confirmation vous parviendra dans les 15 secondes.",
 
 'modal_press_esc_to_close' =>
 "Appuyer sur la touche ESC/Échap pour fermer la fenêtre.",
