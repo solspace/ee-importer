@@ -112,7 +112,7 @@ Afin d'utiliser le traitement par lots avec un travail Cron, vous devez définir
 "%i% profils Importer supprimés",
 
 "profile_delete_question" =>
-"Êtes-vous certain de vouloir supprimer %i% %profils% ?",
+"Êtes-vous certain de vouloir supprimer %i% %profiles% ?",
 
 "action_can_not_be_undone" =>
 "Cette action ne peut pas être annulée.",
