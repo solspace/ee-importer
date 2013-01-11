@@ -1,14 +1,14 @@
-﻿<?php
+<?php
 
  /**
- * Solspace - Importer
+ * Importer - Language
  *
  * @package		Solspace:Importer
- * @author		Solspace DevTeam
- * @copyright	Copyright (c) 2008-2012, Solspace, Inc.
- * @link		http://solspace.com/docs/addon/c/Importer/
+ * @author		Solspace, Inc.
+ * @copyright	Copyright (c) 2008-2013, Solspace, Inc.
+ * @link		http://solspace.com/docs/importer
  * @version		2.1.0
- * @filesource 	./system/expressionengine/third_party/importer/language/english/
+ * @filesource 	importer/language/french/lang.importer.php
  */
 
 $lang = $L = array(
@@ -65,13 +65,13 @@ $lang = $L = array(
 "Nom",
 
 'importer_edit' =>
-"Éditer", /** verb or noun ? */
+"Éditer",
 
 'importer_datatype' =>
 "Type de données",
 
 'importer_cron_urls' =>
-"URLs CRON",
+"URLs Cron",
 
 'importer_cron' =>
 "Cron",
@@ -250,16 +250,16 @@ Afin d'utiliser le traitement par lots avec un travail Cron, vous devez définir
 "Chemin sur le serveur distant",
 
 'importer_manual_upload' =>
-"Téléversement manuel",
+"Téléchargement manuel",
 
 'importer_data_source_manual_upload' =>
-"Téléverser manuellement le fichier",
+"Télécharger manuellement le fichier",
 
 'importer_manual_upload' =>
-"Fichier téléversé manuellement",
+"Fichier téléchargé manuellement",
 
 'importer_manual_upload_subtext' =>
-"Cette option signifie qu'à chaque fois que vous utiliserez ce profil Importer, vous devrez téléverser manuellement un fichier à partir de votre ordinateur local.",
+"Cette option signifie qu'à chaque fois que vous utiliserez ce profil Importer, vous devrez télécharger manuellement un fichier à partir de votre ordinateur en local.",
 
 'importer_ftp_test' =>
 "Tester la connexion FTP/SFTP",
@@ -389,7 +389,7 @@ Afin d'utiliser le traitement par lots avec un travail Cron, vous devez définir
 // --------------------------------------------
 
 'import_log' =>
-"Fichier de log de l'import",
+"Journal de l'import",
 
 'import_date' =>
 "Date",
@@ -398,25 +398,25 @@ Afin d'utiliser le traitement par lots avec un travail Cron, vous devez définir
 "Détails",
 
 'no_imports_logged' =>
-"Aucune importation dans le fichier de log",
+"Aucune importation dans le journal",
 
 'importer_delete_logs' =>
-"Supprimer les fichiers de log",
+"Supprimer les journaux",
 
 "logs_delete_question" =>
-"Êtes-vous certain de vouloir supprimer %i% fichiers de log ?",
+"Êtes-vous certain de vouloir supprimer %i% journaux ?",
 
 "log_delete_question" =>
-"Êtes-vous certain de vouloir supprimer ce fichier de log ?",
+"Êtes-vous certain de vouloir supprimer ce journal ?",
 
 'importer_logs_delete_confirm' =>
-"Confirmation de suppression du fichier de log Importer",
+"Confirmation de suppression du journal Importer",
 
 'importer_log_deleted' =>
-"Fichier de log Importer supprimé",
+"Journal Importer supprimé",
 
 'importer_logs_deleted' =>
-"%i% fichiers de log Importer supprimés",
+"%i% journaux Importer supprimés",
 
 // --------------------------------------------
 //  AJAX Connection Test
@@ -628,7 +628,7 @@ Cliquer sur 'Réaliser l'Import' pour démarrer.",
 
 'importer_module_disabled' =>
 "Le module Importer est actuellement désactivé. Merci de vous assurer qu'il est installé et à jour
-en vous rendant sur le panneau de contrôle du module situé dans le Panneau de Contrôle ExpressionEngine",
+en vous rendant sur le panneau de contrôle du module situé dans le Tableau de Bord ExpressionEngine",
 
 'disable_module_to_disable_extension' =>
 "Pour désactiver cette extension, vous devez désactiver son <a href='%url%'>module</a> correspondant.",
