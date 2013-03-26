@@ -7,7 +7,7 @@
  * @author		Solspace, Inc.
  * @copyright	Copyright (c) 2008-2013, Solspace, Inc.
  * @link		http://solspace.com/docs/importer
- * @version		2.1.0
+ * @version		2.2.0
  * @filesource 	importer/language/french/lang.importer.php
  */
 
@@ -18,13 +18,13 @@ $lang = $L = array(
 /**	----------------------------------------*/
 
 'importer_module_name'						=>
-'Importer',
+'Importer / Importateur',
 
 'importer_module_description'				=>
 'Importer des entrées à partir de sources CSV, JSON et XML.',
 
 'importer'									=>
-'Importer',
+'Importer / Importateur',
 
 'importer_module_version' =>
 "Version",
