@@ -1,27 +1,28 @@
 <?php
 
- /**
- * Solspace - Importer
+/**
+ * Importer - Language
  *
  * @package		Solspace:Importer
- * @author		Solspace DevTeam
- * @copyright	Copyright (c) 2008-2012, Solspace, Inc.
- * @link		http://solspace.com/docs/addon/c/Importer/
- * @version		2.1.0
- * @filesource 	./system/expressionengine/third_party/importer/language/english/
+ * @author		Solspace, Inc.
+ * @copyright	Copyright (c) 2008-2014, Solspace, Inc.
+ * @link		http://solspace.com/docs/importer
+ * @license		http://www.solspace.com/license_agreement
+ * @version		2.2.5
+ * @filesource	importer/language/english/lang.importer.php
  */
 
-$lang = $L = array(
+$lang = array(
 
-/**	----------------------------------------
-/**	Required for modules page
-/**	----------------------------------------*/
+//	----------------------------------------
+//	Required for modules page
+//	----------------------------------------
 
 'importer_module_name'						=>
 'Importer',
 
 'importer_module_description'				=>
-'Import entries from CSV, JSON, and XML sources.',
+'Import multiple kinds of data from local or remote data sources into ExpressionEngine content.',
 
 'importer'									=>
 'Importer',
@@ -33,11 +34,8 @@ $lang = $L = array(
 //  CP Main Menu
 // --------------------------------------------
 
-'importer_preferences' =>
-"Preferences",
-
 'importer_homepage' =>
-"Homepage",
+"Profiles",
 
 'online_documentation' =>
 "Online Documentation",
@@ -47,6 +45,9 @@ $lang = $L = array(
 
 'importer_no' =>
 "No",
+
+'clear_batches' =>
+'Clear Batches',
 
 // --------------------------------------------
 //  Homepage/Imports
@@ -70,18 +71,27 @@ $lang = $L = array(
 'importer_datatype' =>
 "DataType",
 
+'importer_content_type' =>
+"Content Type",
+
 'importer_cron_urls' =>
 "Cron URLs",
 
 'importer_cron' =>
 "Cron",
 
+'from' =>
+"From",
+
+'to' =>
+"to",
+
 'importer_cron_batch' =>
 "Batch Processing",
 
 'importer_batch_processing_explaination' =>
 "Importer has a built in limit of 100 items imported at a time to prevent exceeding a server's resources.
-If the number of items to be imported exceeds this amount, batch processing is triggered automatically.  
+If the number of items to be imported exceeds this amount, batch processing is triggered automatically.
 To use batch processing with a cron, you need to set up a second cron to process the batches.",
 
 'right_click_to_copy' =>
@@ -165,8 +175,17 @@ To use batch processing with a cron, you need to set up a second cron to process
 'invalid_importer_profile_datatype' =>
 "Invalid Importer Profile Data Type Submitted",
 
+'invalid_importer_profile_content_type' =>
+"Invalid Importer Profile Content Type Submitted",
+
+'unable_to_successfully_save_settings' =>
+"Unable to Successfully Save Settings",
+
 'invalid_datatype_given' =>
 "Invalid Datatype Given",
+
+'invalid_content_type_given' =>
+"Invalid Content Type Given",
 
 'invalid_datatype' =>
 "Invalid Data Type",
@@ -194,7 +213,7 @@ To use batch processing with a cron, you need to set up a second cron to process
 
 'importer_data_source_subtext' =>
 "The data for Importer can be retrieved by the listed methods. Choose one and fill out the required details. An attempt
-will be made to retrieve the file when you click submit.",
+will be made to retrieve the data when you click submit.",
 
 'importer_data_source_filename' =>
 "Local File",
@@ -300,6 +319,15 @@ a file from your local computer.",
 'problem_retreiving_file_data' =>
 "Problem retrieving the file data.",
 
+'problem_retreiving_data' =>
+"Problem retrieving the data.",
+
+'problem_retreiving_batch_data' =>
+"Problem retrieving batch data.",
+
+'datatype_is_missing_batch_processing_method' =>
+'Datatype is missing batch processing method.',
+
 'source_data_contained_invalid_data' =>
 "The source data file contained either no data or invalid data.",
 
@@ -313,13 +341,19 @@ a file from your local computer.",
 "Unable to create a directory for storing Importer data files in the ExpressionEngine cache directory, please check your folder's writing permissions.",
 
 'error_unable_to_read_data_file' =>
-"Error:  Unable to read data file.",
+"Error: Unable to read data file.",
 
 'importer_memory_usage_warning' =>
 "Importer has determined that the data source is too large for your server to process.",
 
+'unable_to_load_data_source' =>
+"Unable to Load Data Source",
+
+'unable_to_retrieve_source_data' =>
+"Unable to Retrieve Source Data",
+
 // --------------------------------------------
-//  Settings Form - GLOBAL 
+//  Settings Form - GLOBAL
 // --------------------------------------------
 
 'invalid_data_received' =>
@@ -531,6 +565,9 @@ a file from your local computer.",
 'no_batches_to_process' =>
 "No Batches to Process",
 
+'batch_data_successfully_emptied' =>
+"All Batches have been successfully emptied from the database.",
+
 // --------------------------------------------
 //  Statistics
 // --------------------------------------------
@@ -579,6 +616,9 @@ a file from your local computer.",
 
 'number_of_queries' =>
 "Number of Queries",
+
+'categories_created' =>
+"Categories Created",
 
 // -------------------------------------
 //	Batch Import
@@ -629,7 +669,7 @@ Click 'Perform Import' to begin.",
 "Invalid Request",
 
 'importer_module_disabled' =>
-"The Importer module is currently disabled.  Please insure it is installed and up to date by going 
+"The Importer module is currently disabled.  Please insure it is installed and up to date by going
 to the module's control panel in the ExpressionEngine Control Panel",
 
 'disable_module_to_disable_extension' =>
@@ -664,4 +704,3 @@ to the module's control panel in the ExpressionEngine Control Panel",
 // END
 ''=>''
 );
-?>
