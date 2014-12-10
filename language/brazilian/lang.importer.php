@@ -1,15 +1,17 @@
 <?php
 
- /**
- * Solspace - Importer
+/**
+ * Importer - Brazilian Portuguese Language
  *
  * @package		Solspace:Importer
- * @author		Solspace DevTeam
- * @copyright	Copyright (c) 2008-2012, Solspace, Inc.
- * @link		http://solspace.com/docs/addon/c/Importer/
+ * @author		Solspace, Inc.
+ * @copyright	Copyright (c) 2008-2014, Solspace, Inc.
+ * @link		http://solspace.com/docs/importer
+ * @license		http://www.solspace.com/license_agreement
  * @version		2.1.0
- * @translated to Brazilian Portuguese by MarchiMedia
- * @filesource 	./system/expressionengine/third_party/importer/language/english/
+ * @filesource	importer/language/brazilian/lang.importer.php
+ *
+ * Translated to Brazilian Portuguese by MarchiMedia
  */
 
 $lang = $L = array(

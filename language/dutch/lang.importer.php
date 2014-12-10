@@ -1,14 +1,17 @@
 <?php
 
- /**
- * Solspace - Importer
+/**
+ * Importer - Dutch Language
  *
  * @package		Solspace:Importer
- * @author		Solspace DevTeam
- * @copyright	Copyright (c) 2008-2012, Solspace, Inc.
- * @link		http://solspace.com/docs/addon/c/Importer/
+ * @author		Solspace, Inc.
+ * @copyright	Copyright (c) 2008-2014, Solspace, Inc.
+ * @link		http://solspace.com/docs/importer
+ * @license		http://www.solspace.com/license_agreement
  * @version		2.1.0
- * @filesource 	./system/expressionengine/third_party/importer/language/english/
+ * @filesource	importer/language/dutch/lang.importer.php
+ *
+ * Translated to Dutch by N/A
  */
 
 $lang = $L = array(

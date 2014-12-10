@@ -1,14 +1,17 @@
 <?php
 
- /**
- * Importer - Language
+/**
+ * Importer - French Language
  *
  * @package		Solspace:Importer
  * @author		Solspace, Inc.
- * @copyright	Copyright (c) 2008-2013, Solspace, Inc.
+ * @copyright	Copyright (c) 2008-2014, Solspace, Inc.
  * @link		http://solspace.com/docs/importer
+ * @license		http://www.solspace.com/license_agreement
  * @version		2.2.0
- * @filesource 	importer/language/french/lang.importer.php
+ * @filesource	importer/language/french/lang.importer.php
+ *
+ * Translated to French by N/A
  */
 
 $lang = $L = array(
