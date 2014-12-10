@@ -34,7 +34,7 @@ and ends.  Typically, this is a double or single quote character.",
 "First Record is Column Names",
 
 'importer_first_record_column_names_subtext' =>
-"It is highly suggested that the first row of data be column names to better facilitate importing.",
+"It is highly suggested that the first row of data be column names to better faciliate importing.",
 
 // END
 ''=>''
