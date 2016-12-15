@@ -1,0 +1,42 @@
+<p><strong><?=$purpose_message?></strong></p>
+<div id="progress">
+	<hr/>
+	<p id="current_item_updating">
+		<img id="progress_inidicator" src="<?=$importer_theme_path?>images/indicator.gif" />
+		<?=$updating_counts_message?><strong><span id="updating_item_name"></span></strong>
+	</p>
+	<div id="progressbar"></div>
+	<div id="update_percent">0%</div>
+	<div class="clear_left"></div>
+	<div id="number_updated">
+		<p>
+			<?=$total_updated_message?>:
+			<span class="notice">
+				<span id="updates_completed">0</span>/
+				<span id="total_to_update"><?=$total_items_count?></span>
+			</span>
+		</p>
+	</div>
+	<div id="finished_message">
+		<p>
+			<strong><?=$complete_message;?> - <a href="<?=$return_uri?>"><?=lang('return_to_importer_homepage')?></a></strong>
+		</p>
+	</div>
+</div>
+
+<button id="update_item_counts" class="submit"><?=$button_label?></button>
+<button id="pause_item_counts" class="submit"><?=lang('importer_pause')?></button>
+<button id="resume_item_counts" class="submit"><?=lang('importer_resume')?></button>
+<script type="text/javascript">
+	(function(global, $){
+		var Solspace = window.Solspace = window.Solspace || {};
+		Solspace.importer = Solspace.importer || {};
+
+		Solspace.importer.items = <?=$items?>;
+
+		Solspace.importer.ajaxLinks = {
+			'importer_batch_import_ajax_url' : '<?=$importer_batch_import_ajax_url?>',
+			'importer_import_statistics_ajax_url':  '<?=$importer_import_statistics_ajax_url?>'
+		};
+	}(window, jQuery));
+</script>

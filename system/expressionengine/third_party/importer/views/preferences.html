@@ -1,0 +1,26 @@
+<form action="<?=$this->output($base_uri.'&method=save_preferences');?>" method="post" id="module_preferences_form">
+	<input type="hidden" name="<?=$csrf_hidden_name?>"	value="<?=$CSRF_TOKEN?>" />
+
+
+	<!--- TRACKING PREFERENCES -->
+	<table class="mainTable padTable" style="width:100%;" cellspacing="0" cellpadding="0" border="0">
+	    <thead>
+  				<tr>
+  					<th colspan="2"><?=lang('importer_preferences')?></th>
+  				</tr>
+  		</thead>
+		<tbody>
+			<tr class="odd">
+				<td style='width:50%; vertical-align:top;'>
+					<label for='some_preference' ><?=lang('some_preference');?></label>
+				</td>
+				<td>
+					<!-- FIELD GOES HERE -->
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<p style="float:right;"><input type="submit" class="submit" value="Save Preferences" /> </p>
+</form>

@@ -1,0 +1,59 @@
+<form action="<?=$this->output($base_uri.'&method=save_settings');?>" method="post" id="module_importer_profile_settings">
+	<input type="hidden" name="<?=$csrf_hidden_name?>"	value="<?=$CSRF_TOKEN?>" />
+	<input type="hidden" name="profile_id" value="<?=$importer_profile_id?>" />
+
+
+<table class="mainTable" border="0" cellspacing="0" cellpadding="0">
+
+	<thead>
+		<tr>
+			<th><?=lang('setting')?></th>
+			<th><?=lang('values')?></th>
+	</thead>
+
+	<tbody>
+
+		<tr>
+			<td>
+				<label for="playa_field"><?=lang('playa_field_imported_into')?></label>
+			</td>
+			<td>
+				<select name="playa_field">
+					<optgroup label="<?=$this->output($channel_titles[$selected_importing_fields_channel])?>">
+						<?php foreach($playa_fields AS $field_id => $field_label) : ?>
+							<?php $selected = ($selected_playa_field == $field_id) ? 'selected="selected"' : '' ?>
+							<option value="<?=$field_id?>" <?=$selected?>><?=$field_label?></option>
+						<?php endforeach;?>
+					</optgroup>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td style="vertical-align:top; width: 30%;">
+				<label for="importing_fields_import_order"><?=lang('fields_being_imported')?></label>
+				<div class="subtext"><?=lang('importing_fields_import_order_desc')?></div>
+			</td>
+			<td id="order_the_field_parent">
+				<ul id="order_the_field" style="list-style: disc; margin-left:20px;">
+
+				<?php foreach($selected_importing_fields_import_order AS $key => $label) :?>
+					 <li style="padding:3px 0;">
+						<span><?=$channel_titles[$selected_importing_fields_channel]?></span> <strong> &#8594; </strong>
+						<strong><?=$label?></strong>
+
+						<input type="hidden" name="importing_fields_import_order[]" value="<?=$key?>" />
+					</li>
+				<?php endforeach;?>
+				</ul>
+			</td>
+		</tr>
+
+	</tbody>
+</table>
+
+<input type="submit" name="submit_import" value="<?=lang('save_and_do_import')?>" class="submit" />
+&nbsp;
+<input type="submit" name="submit_finish" value="<?=lang('save_and_finish')?>" class="submit" />
+
+</form>

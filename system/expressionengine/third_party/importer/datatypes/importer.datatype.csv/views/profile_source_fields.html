@@ -1,0 +1,58 @@
+<table class="mainTable" border="0" cellspacing="0" cellpadding="0">
+	<thead>
+		<tr>
+			<th colspan="2">
+				<?=lang('additional_data_type_fields')?>
+			</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+
+		<!-- CSV Data Type: Delimiter -->
+		<tr class="even">
+			<td style="width:35%;">
+				<em class='required'>* </em><label for="csv_delimiter"><?=lang('importer_csv_delimiter')?></label>
+				<div class="subtext"><?=lang('importer_csv_delimiter_subtext')?></div>
+			</td>
+			<td>
+				<select name="csv_delimiter">
+						<?php foreach(array('comma', 'tab', 'semicolon') AS $option) :?>
+							<?php $selected = ($importer_csv_delimiter == $option) ? 'selected="selected"' : ''; ?>
+							<option value="<?=$option?>" <?=$selected?>><?=lang('importer_csv_delimiter_'.$option)?></option>
+					<?php endforeach;?>
+				</select>
+			</td>
+		</tr>
+		
+		<!-- CSV Data Type: Encloser -->
+		<tr class="odd">
+			<td style="width:35%;">
+				<em class='required'>* </em><label for="csv_encloser"><?=lang('importer_csv_encloser')?></label>
+				<div class="subtext"><?=lang('importer_csv_delimiter_subtext')?></div>
+			</td>
+			<td>
+				<input type="text" name="csv_encloser" size="3" style="width:auto;" value="<?=$caller->output($importer_csv_encloser)?>" />
+			</td>
+		</tr>
+		
+		<!-- CSV Data Type: Fields First -->
+		<tr class="even">
+			<td style="width:35%;">
+				<em class='required'>* </em><label for="first_record_column_names"><?=lang('importer_first_record_column_names')?></label>
+				<div class="subtext"><?=lang('importer_first_record_column_names_subtext')?></div>
+			</td>
+			<td>
+				<select name="first_record_column_names">
+						<?php $selected = ($importer_first_record_column_names == 'y') ? 'selected="selected"' : ''; ?>
+						<option value="y" <?=$selected?>><?=lang('importer_yes')?></option>
+						
+						<?php $selected = ($importer_first_record_column_names == 'n') ? 'selected="selected"' : ''; ?>
+						<option value="n" <?=$selected?>><?=lang('importer_no')?></option>
+				</select>
+			</td>
+		</tr>
+		
+	</tbody>
+</table>
+		

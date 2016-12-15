@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>		<html class="no-js ie6"> <![endif]-->
+<!--[if IE 7]>			<html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js ie8"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html class="no-js"> <!--<![endif]-->
+	<head lang="en">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>Cron Importing | Importer | Solspace Addon Documentation</title>
+		<meta name="description" content="" />
+		<meta name="copyright" content="(c) 2010 Copyright content: Copyright design: Solspace, Inc."/>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="assets/css/normalize.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="assets/fancybox/jquery.fancybox-1.3.4.css" />
+		<link href="assets/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+		<link href="assets/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+		<script src="assets/js/modernizr.min.js"></script>
+	</head>
+	<body>
+		<!--[if lt IE 8]>
+			<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+		<![endif]-->
+
+		<header>
+			<div class="header-inner">
+				<div class="logo">
+					<img src="assets/images/logo.png" />
+				</div>
+
+				<div class="bread_crumbs">
+					<ul class="crumbs">
+						<li class="first"><a href="index.html">Importer</a></li>
+						<li>Cron Importing</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<div class="content-wrapper">
+			<nav class="toc">
+				<ul>
+<li><a href="https://solspace.com/expressionengine/importer/">More Info | Purchase</a></li>
+<li><a href="change_log.html">Change Log</a></li>
+<li><a href="install_update.html">Install / Update</a></li>
+<li><a href="control_panel.html">Control Panel</a></li>
+<li><a href="data_types.html">Data Types</a></li>
+<li><a href="content_types.html">Content Types</a></li>
+<li><a href="data_sources.html">Data Sources</a></li>
+<li><a href="file_sizes_max_imports.html">File Sizes &amp; Maximum Imports</a></li>
+<li class="current"><a href="cron_importing.html">Cron Importing</a></li>
+<li><a href="third_party_support.html">Third Party Add-on Support</a></li>
+<li><h3>Requirements</h3><div class="requirements">
+
+<ul>
+<li>EE 2.10.x</li>
+<li>PHP 5.2+</li>
+<li>MySQL 5+</li>
+<li>All modern browsers or IE 10+</li>
+</ul></div></li>
+</ul>
+			</nav>
+
+			<article class="docs">
+				<p>Many servers have a feature called a cron that allows you to schedule tasks to happen on your server at regular intervals – often multiple times a day. Your hosting provider may even have a web interface for setting this up, or you may have to set it up via the commandline using the crontab daemon. For more information, try a search for <a href="http://www.google.com/search?q=crontab+documentation">crontab documentation</a>.</p>
+
+<p>Importer allows the importing of content at regular intervals via a cron. Simply set up your cron to hit the Importer URL at a regular interval and the content will automatically be imported into your site.</p>
+
+<p>If you look at the Importer Control Panel, you will see a list of your Import profiles. An Import profile is essentially the settings for importing data from a source, parsing it, and inserting or updating the data into ExpressionEngine. In this list will be a column labeled <em>Cron URLs</em>.</p>
+
+<p><a href="images/importer_cron_urls.jpg"><img src="images/importer_cron_urls.jpg" alt="click to enlarge" /></a></p>
+
+<p>There are two Cron URLs for each Importer profile. Because imports can use up quite a bit of memory during processing, the Importer module has batch processing built in. This is automatically triggered if the number of items to be imported exceeds 100. So, the first URL will set up an import AND if the number of items is under 100, it will automatically do the import as well. If you expect that your imports will have more than 100 items, then you will ALSO need to use the second URL to insure the data is processed in batches. Batches are stored in the database and will be ready for processing immediately.</p>
+
+<p><strong>NOTE: Since you will have multiple batches, the Batch Processing Cron URL should be run more often. Also, if you prepare a cron batch, and somehow change the source data file and THEN cause the batches to run, the older data will still be in the batch queue and thus still loaded into the site.</strong></p>
+
+<p><a name="example_cron_setup"></a></p>
+
+<h2>Example Cron Setup</h2>
+
+<ol>
+<li><p>Create a new file called <em>importer_cron.sh</em>, which will create the importer, and add this to file (the hash code will be different for each import profile):</p>
+
+<pre class="brush: html;">#!/usr/bin/env bash
+
+#wget Example
+/usr/local/bin/wget -q -t 5 "http://ee2.dev/index.php?ACT=24&amp;hash=sWMrxOUj1haNrxOcT8fDZypSKWYuWeHH"
+
+#cURL Example
+/usr/bin/curl --silent --compressed "http://ee2.dev/index.php?ACT=24&amp;hash=sWMrxOUj1haNrxOcT8fDZypSKWYuWeHH"
+</pre></li>
+<li><p>Create a new file called <em>importer_cron_batch.sh</em>, which will run the batch processing, and add this to file (the hash code will be different for each import profile):</p>
+
+<pre class="brush: html;">#!/usr/bin/env bash
+
+#wget Example
+/usr/local/bin/wget -q -t 5 "http://ee2.dev/index.php?ACT=24&amp;hash=sWMrxOUj1haNrxOcT8fDZypSKWYuWeHH&amp;batch=yes"
+
+#cURL Example
+/usr/bin/curl --silent --compressed "http://ee2.dev/index.php?ACT=24&amp;hash=sWMrxOUj1haNrxOcT8fDZypSKWYuWeHH&amp;batch=yes"
+</pre></li>
+<li><p>Create two crons for these files:</p>
+
+<pre class="brush: html;">0   0,12    *   *   *   sh /Library/WebServer/Documents/ExpressionEngine2/importer_cron.sh
+*/10    *   *   *   *   sh /Library/WebServer/Documents/ExpressionEngine2/importer_cron_batch.sh
+</pre>
+
+<p>The first runs the initial import cron twice a day at midnight and noon.
+The second checks for batches to run every ten minutes.</p></li>
+</ol>
+			</article>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+		<script src="assets/syntaxhighlighter/scripts/shCore.js"></script>
+		<script src="assets/syntaxhighlighter/scripts/shAutoloader.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>

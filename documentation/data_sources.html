@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>		<html class="no-js ie6"> <![endif]-->
+<!--[if IE 7]>			<html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js ie8"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html class="no-js"> <!--<![endif]-->
+	<head lang="en">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>Data Sources | Importer | Solspace Addon Documentation</title>
+		<meta name="description" content="" />
+		<meta name="copyright" content="(c) 2010 Copyright content: Copyright design: Solspace, Inc."/>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="assets/css/normalize.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="assets/fancybox/jquery.fancybox-1.3.4.css" />
+		<link href="assets/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+		<link href="assets/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+		<script src="assets/js/modernizr.min.js"></script>
+	</head>
+	<body>
+		<!--[if lt IE 8]>
+			<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+		<![endif]-->
+
+		<header>
+			<div class="header-inner">
+				<div class="logo">
+					<img src="assets/images/logo.png" />
+				</div>
+
+				<div class="bread_crumbs">
+					<ul class="crumbs">
+						<li class="first"><a href="index.html">Importer</a></li>
+						<li>Data Sources</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<div class="content-wrapper">
+			<nav class="toc">
+				<ul>
+<li><a href="https://solspace.com/expressionengine/importer/">More Info | Purchase</a></li>
+<li><a href="change_log.html">Change Log</a></li>
+<li><a href="install_update.html">Install / Update</a></li>
+<li><a href="control_panel.html">Control Panel</a></li>
+<li><a href="data_types.html">Data Types</a></li>
+<li><a href="content_types.html">Content Types</a></li>
+<li class="current"><a href="data_sources.html">Data Sources</a></li>
+<li><a href="file_sizes_max_imports.html">File Sizes &amp; Maximum Imports</a></li>
+<li><a href="cron_importing.html">Cron Importing</a></li>
+<li><a href="third_party_support.html">Third Party Add-on Support</a></li>
+<li><h3>Requirements</h3><div class="requirements">
+
+<ul>
+<li>EE 2.10.x</li>
+<li>PHP 5.2+</li>
+<li>MySQL 5+</li>
+<li>All modern browsers or IE 10+</li>
+</ul></div></li>
+</ul>
+			</nav>
+
+			<article class="docs">
+				<p>Importer lets you import files by a variety of different data sources:</p>
+
+<p><a name="local_file"></a></p>
+
+<h2>Local File</h2>
+
+<p>You can provide Importer with the absolute file path for the file
+located on your server that you wish to import.</p>
+
+<p><a href="images/importer_local_file.jpg"><img src="images/importer_local_file.jpg" alt="click to enlarge" /></a></p>
+
+<p><a name="remote_url"></a></p>
+
+<h2>Remote URL</h2>
+
+<p>You can provide Importer with the full website URL for the file you wish
+to import. Both <em>http://</em> and <em>https://</em> are supported. In the event the
+remote file is protected by HTTP Authentication, you can provide a
+username and password. <strong>Note: Username and Password will be encrypted
+prior to being stored in the ExpressionEngine database for security
+reasons.</strong></p>
+
+<p><a href="images/importer_remote_url.jpg"><img src="images/importer_remote_url.jpg" alt="click to enlarge" /></a></p>
+
+<p><a name="file_via_ftp"></a></p>
+
+<h2>File via FTP</h2>
+
+<p>You can provide Importer with the full FTP login for the file you wish
+to import. You'll need to provide <em>Host</em>, <em>Username</em>, <em>Password</em>, <em>Port</em>, and
+<em>Server Path</em>. <strong>Note: Username and Password will be encrypted prior to
+being stored in the ExpressionEngine database for security reasons.</strong>
+You may also perform a test for the FTP/SFTP Connection. Using AJAX, a
+connection test can be performed and the file will be detected but not
+downloaded to insure your settings work.</p>
+
+<p><a href="images/importer_file_via_ftp.jpg"><img src="images/importer_file_via_ftp.jpg" alt="click to enlarge" /></a></p>
+
+<p><a name="file_via_sftp"></a></p>
+
+<h2>File via SFTP</h2>
+
+<p>You can provide Importer with the full SFTP login for the file you wish
+to import. You'll need to provide <em>Host</em>, <em>Username</em>, <em>Password</em>, <em>Port</em>, and
+<em>Server Path</em>. <strong>Note: Username and Password will be encrypted prior to
+being stored in the ExpressionEngine database for security reasons.</strong>
+You may also perform a test for the FTP/SFTP Connection. Using AJAX, a
+connection test can be performed and the file will be detected but not
+downloaded to insure your settings work.</p>
+
+<p><a href="images/importer_file_via_sftp.jpg"><img src="images/importer_file_via_sftp.jpg" alt="click to enlarge" /></a></p>
+
+<p><a name="manually_upload_file"></a></p>
+
+<h2>Manually Upload File</h2>
+
+<p>This option means that every time you use this Importer Profile, you
+will need to manually upload a file from your local computer. To allow
+manual uploading of JSON files, <em>JSON</em> needs to be added to
+<strong>config/mimes.php</strong> file:</p>
+
+<pre class="brush: html;">'json'    =&gt;    array('application/json', 'text/javascript'), </pre>
+
+<p><a href="images/importer_manual_upload.jpg"><img src="images/importer_manual_upload.jpg" alt="click to enlarge" /></a></p>
+			</article>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+		<script src="assets/syntaxhighlighter/scripts/shCore.js"></script>
+		<script src="assets/syntaxhighlighter/scripts/shAutoloader.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>

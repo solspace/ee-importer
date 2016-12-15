@@ -1,0 +1,44 @@
+<form action="<?=$this->output($base_uri.'&method=save_profile_name');?>" method="post" id="module_importer_profile_name_form">
+	<input type="hidden" name="<?=$csrf_hidden_name?>"	value="<?=$CSRF_TOKEN?>" />
+	<input type="hidden" name="datatype" value="<?=$profile_datatype?>" />
+	<input type="hidden" name="content_type" value="<?=$profile_content_type?>" />
+	<input type="hidden" name="profile_id" value="<?=$importer_profile_id?>" />
+
+	<table class="mainTable" border="0" cellspacing="0" cellpadding="0">
+		<thead>
+			<tr>
+				<th colspan="2">
+					<?php if ($importer_profile_edit == TRUE): ?>
+						<?=lang('importer_edit_profile')?>
+					<?php else :?>
+						<?=lang('importer_new_profile')?>
+					<?php endif;?>
+
+					(<?=$profile_datatype?>)
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr class="even">
+			<td style="width:35%"><label for="name"><?=lang('importer_profile_name')?></label></td>
+			<td><input type="text" name="name" value="<?=$caller->output($profile_name)?>" id="name" size="50"  /></td>
+		</tr>
+		<tr class="odd">
+			<td><label for="instructions"><?=lang('importer_instructions')?></label>
+				<div class="subtext">
+					<?=lang('importer_instructions_subtext')?>
+				</div>
+			</td>
+			<td><textarea name="instructions" cols="64" rows="4" id="instructions"><?=$caller->output($profile_instructions)?></textarea></td>
+		</tr>
+		</tbody>
+	</table>
+
+	<?php if ($importer_profile_edit == TRUE): ?>
+			<input type="submit" name="submit_continue" value="<?=lang('save_and_continue')?>" class="submit" />
+			&nbsp;
+			<input type="submit" name="submit_finish" value="<?=lang('save_and_finish')?>" class="submit" />
+	<?php else : ?>
+		<input type="submit" name="submit" value="<?=lang('importer_continue')?>" class="submit" />
+	<?php endif;?>
+</form>

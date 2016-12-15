@@ -1,0 +1,62 @@
+<tr class="<?=$this->cycle('odd', 'even')?>" field-id="<?=$field_id?>">
+
+	<?php if (isset($field_data['field_element_callback'])) : ?>
+
+		<?=$field_data['field_element_callback']?>
+
+	<?php else :?>
+
+		<td style="width: 30%;">
+
+		<?php if ($field_data['field_required'] == 'y') :?>
+			<em class='required'>*</em>
+		<?php endif; ?>
+
+		<label for="<?=$field_id?>_element">
+			<?=$field_data['field_label']?>
+		</label>
+
+		&nbsp; [<a href="" class="remove_me" field-id="<?=$field_id?>"><?=lang('remove')?></a>]
+
+		<?php if ( ! empty($field_data['field_subtext'])) :?>
+
+			<div class="subtext">
+				<?=$field_data['field_subtext']?>
+			</div>
+
+		<?php endif;?>
+
+		</td>
+
+		<td style="width: 40%;">
+			<select name="<?=$field_id?>_element">
+				<option value=""></option>
+
+				<?php foreach ($element_options as $element => $example) :?>
+					<?php $selected = ($element == ${'selected_'.$field_id.'_element'}) ? 'selected="selected"' : ''; ?>
+					<option value="<?=$element?>" <?=$selected?>><?=$element?> - <?=lang('content_type_for_example')?> <?=$example?></option>
+				<?php endforeach; ?>
+			</select>
+		</td>
+
+		<td>
+			<a href="" class="default_field_modal" rel="<?=$field_id;?>"><?=lang('Show')?></a>
+
+			<div id="custom_field_default_div_<?=$field_id;?>" style="display:none;">
+				<?php $name = 'selected_'.$field_id.'_default'; ?>
+
+				<?php if ( $field_data['field_type'] == 'select') : ?>
+					<select name="<?=$field_id?>_default">
+						<option value=""><option> <!-- Need an empty default so we do not accidentally have the first value as default -->
+						<?php foreach($field_data['field_list_options'] AS $o_key => $o_value) : ?>
+							<?php $selected = ($o_key == ${$name}) ? 'selected="selected"' : ''; ?>
+							<option value="<?=$o_key?>" <?=$selected?>><?=$o_value?></option>
+						<?php endforeach; ?>
+					</select>
+				<?php else: ?>yes
+					<textarea name="<?=$field_id;?>_default"><?=${$name};?></textarea>
+				<?php endif; ?>
+			</div>
+		</td>
+	<?php endif;?>
+</tr>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>		<html class="no-js ie6"> <![endif]-->
+<!--[if IE 7]>			<html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js ie8"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html class="no-js"> <!--<![endif]-->
+	<head lang="en">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>Gallery Assets | Importer | Solspace Addon Documentation</title>
+		<meta name="description" content="" />
+		<meta name="copyright" content="(c) 2010 Copyright content: Copyright design: Solspace, Inc."/>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="assets/css/normalize.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="assets/fancybox/jquery.fancybox-1.3.4.css" />
+		<link href="assets/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+		<link href="assets/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+		<script src="assets/js/modernizr.min.js"></script>
+	</head>
+	<body>
+		<!--[if lt IE 8]>
+			<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+		<![endif]-->
+
+		<header>
+			<div class="header-inner">
+				<div class="logo">
+					<img src="assets/images/logo.png" />
+				</div>
+
+				<div class="bread_crumbs">
+					<ul class="crumbs">
+						<li class="first"><a href="index.html">Importer</a></li>
+						<li>Gallery Assets</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<div class="content-wrapper">
+			<nav class="toc">
+				<ul>
+<li><a href="https://solspace.com/expressionengine/importer/">More Info | Purchase</a></li>
+<li><a href="change_log.html">Change Log</a></li>
+<li><a href="install_update.html">Install / Update</a></li>
+<li><a href="control_panel.html">Control Panel</a></li>
+<li><a href="data_types.html">Data Types</a></li>
+<li><a href="content_types.html">Content Types</a></li>
+<li><a href="data_sources.html">Data Sources</a></li>
+<li><a href="file_sizes_max_imports.html">File Sizes &amp; Maximum Imports</a></li>
+<li><a href="cron_importing.html">Cron Importing</a></li>
+<li><a href="third_party_support.html">Third Party Add-on Support</a></li>
+<li><h3>Requirements</h3><div class="requirements">
+
+<ul>
+<li>EE 2.10.x</li>
+<li>PHP 5.2+</li>
+<li>MySQL 5+</li>
+<li>All modern browsers or IE 10+</li>
+</ul></div></li>
+</ul>
+			</nav>
+
+			<article class="docs">
+				<p>This add-on bundle allows you to import data from the ExpressionEngine 1.x Gallery module into a P&amp;T <a href="http://pixelandtonic.com/assets">Assets</a> custom field in an ExpressionEngine 2.x site. It will also take into account any usage of Solspace’s Gallery Extended module, which allowed one to relate Gallery Entries to Weblog Entries.</p>
+
+<ul>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#install_update">Install / Update</a></li>
+<li><a href="#setup">Setup</a></li>
+</ul>
+
+<p><a name="requirements"></a></p>
+
+<h2>Requirements</h2>
+
+<p>This Importer add-on bundle requires that you have the following software purchased separately:</p>
+
+<ul>
+<li><a href="http://ellislab.com/expressionengine">ExpressionEngine 2.4+</a></li>
+<li><a href="https://solspace.com/importer">Solspace Importer 2.2+</a></li>
+<li>Solspace Gallery to Assets Importer</li>
+<li><a href="http://pixelandtonic.com/assets">Pixel &amp; Tonic Assets 2+</a></li>
+</ul>
+
+<p><a name="install_update"></a></p>
+
+<h2>Install / Update</h2>
+
+<ol>
+<li>Before attempting any of this, it is <strong>strongly</strong> recommended that you backup your site, and test this on a staging server.</li>
+<li>Within the download package, copy the <em>importer.datatype.gallery</em> folder into your sites <strong>./system/expressionengine/third_party/importer/datatypes/</strong> directory.</li>
+<li>Within the download package, copy the <em>importer.content_type.assets</em> folder into your sites <strong>./system/expressionengine/third_party/importer/content_types/</strong> directory.</li>
+</ol>
+
+<p><a name="setup"></a></p>
+
+<h2>Setup</h2>
+
+<p>You can import data from the <em>ExpressionEngine 1.x Gallery</em> module into a P&amp;T  <a href="http://pixelandtonic.com/assets">Assets</a> custom field in an ExpressionEngine 2.x site.  It will also take into account any usage of Solspace's <em>Gallery Extended</em> module, which allowed one to relate Gallery Entries to Weblog Entries. The process requires a bit of set up to successfully import both the Gallery Entries <strong>and</strong> relate them to any Channel Entries. Please follow these steps:</p>
+
+<ol>
+<li>Copy all ExpressionEngine 1.x Gallery image directories over to your EE 2.x site. As each Gallery could have its own directory, insure you bring them all over.</li>
+<li>Go into these directories and delete any and all thumb or medium images. They are no longer needed.</li>
+<li>Set up these Gallery directories as ExpressionEngine Upload Directories if they are not already.</li>
+<li>Go into the Assets module and index those Upload Directories so Assets can load all of the metadata for the images.</li>
+<li>Create a new Channel for the Gallery Entries to be imported into and insure to give it an Assets custom field.</li>
+<li>If you were using the Gallery Extended module to relate gallery entries to EE 1.x Weblog entries, create an Assets custom channel field in the applicable ExpressionEngine 2.x channel for those weblog entries.</li>
+<li>As this is a complicated procedure, we recommend backing up your DB at this step.</li>
+<li>Go into Importer and set up a profile importing EE 1.x Gallery Entries into Assets. Follow the instructions and then import. During import, Importer will then go through all gallery entries and attempt to find the image in the Assets directories indexed in Step #4. If the gallery entries are related to a Weblog Entry (using Gallery Extended), it will search Expressionengine for that entry (to insure the entry from ExpressionEngine 1.x still exists in ExpressionEngine 2.x) and assign that Asset image to the Asset custom field for the related entry.</li>
+<li>In your templates, you will now have to use the Assets <a href="http://pixelandtonic.com/assets/docs/templates">custom field tags</a> for displaying your images.</li>
+<li>If you wish to have multiple image sizes, we recommended that you use one of the image resizing + caching plugins found on <a href="http://devot-ee.com/search/tags/tag/image-resize">devot-ee</a>.</li>
+</ol>
+			</article>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+		<script src="assets/syntaxhighlighter/scripts/shCore.js"></script>
+		<script src="assets/syntaxhighlighter/scripts/shAutoloader.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,576 @@
+
+<script type="text/javascript">
+	jQuery(function($)
+	{
+		$('a[rel^="field_id_"]').overlay(
+		{
+			closeOnEsc:true,
+			closeOnClick:true,
+			top:"center",
+			target:"#solspace_modal_overlay",
+			mask:{color:"#262626",loadSpeed:200},
+			onBeforeLoad:function(event)
+			{
+				// Clear modal textarea
+				$('textarea[name="solspace_modal_overlay_textarea"]').val('');
+
+				// Find our field_id_#
+				modal_field_id = this.getTrigger().attr("rel");
+
+				// Set header and modal textarea values
+				$('#solspace_modal_overlay > h2').html($('label[for="' + modal_field_id + '_element"]').html());
+				$('textarea[name="solspace_modal_overlay_textarea"]').val($('textarea[name="default_' + modal_field_id + '"]').val());
+			},
+			onClose:function(e)
+			{
+			    // http://bugs.jquery.com/ticket/7534
+			    var element = e.originalTarget || e.srcElement || (e.originalEvent && e.originalEvent.originalTarget);
+
+				a = $(element).closest(".close");
+
+				// Closed via "Save" button?
+				if (a.hasClass("modal_close_save"))
+				{
+					// Set hidden textarea for field to modal textarea value
+					$('textarea[name="default_' + modal_field_id + '"]').val($('textarea[name="solspace_modal_overlay_textarea"]').val());
+				}
+
+			},
+		});
+
+	});
+</script>
+
+<form action="<?=$this->output($base_uri.'&method=save_settings');?>" method="post" id="module_importer_profile_settings">
+	<input type="hidden" name="<?=$csrf_hidden_name?>"	value="<?=$CSRF_TOKEN?>" />
+	<input type="hidden" name="profile_id" value="<?=$importer_profile_id?>" />
+	<input type="hidden" name="channel_id" value="<?=$importer_channel_id?>" />
+
+
+<!-- CHANNEL - META FIELDS: Title, Date, Status, Author -->
+
+<table class="mainTable" border="0" cellspacing="0" cellpadding="0">
+	<thead>
+		<tr>
+			<th><?=lang('importer_channel_meta_fields')?></th>
+			<th><?=lang('importer_element')?></th>
+			<th><?=lang('importer_default_value')?></th>
+	</thead>
+	<tbody>
+		<tr class="odd">
+			<td style="width:30%;">
+				<em class='required'>* </em><label for="title_element"><?=lang('importer_channel_entry_title')?></label>
+			</td>
+			<td style="width: 40%;">
+				<select name="title_element">
+					<option value=""></option>
+
+					<?php foreach ($element_options as $element => $example) :?>
+						<?php $selected = ($element == $importer_title_element) ? 'selected="selected"' : ''; ?>
+						<option value="<?=$element?>" <?=$selected?>><?=$element?> - <?=lang('content_type_for_example')?> <?=$example?></option>
+					<?php endforeach; ?>
+
+				</select>
+			</td>
+			<td>
+				<input type="text" name="default_title" style="width: auto;" size="50" value="<?=$importer_default_title?>"  />
+			</td>
+		</tr>
+
+		<tr class="even">
+			<td style="width:30%;">
+				<label for="url_title_element"><?=lang('importer_channel_entry_url_title')?></label>
+				<div class="subtext"><?=lang('importer_channel_entry_url_title_subtext')?></div>
+			</td>
+			<td style="width: 40%;">
+				<select name="url_title_element">
+					<option value=""></option>
+
+					<?php foreach ($element_options as $element => $example) :?>
+						<?php $selected = ($element == $importer_url_title_element) ? 'selected="selected"' : ''; ?>
+						<option value="<?=$element?>" <?=$selected?>><?=$element?> - <?=lang('content_type_for_example')?> <?=$example?></option>
+					<?php endforeach; ?>
+
+				</select>
+			</td>
+			<td>
+			</td>
+		</tr>
+
+
+		<tr class="odd">
+			<td style="width:30%;">
+				<label for="entry_date_element"><?=lang('importer_channel_entry_date')?></label>
+				<div class="subtext"><?=lang('importer_channel_entry_date_subtext')?></div>
+			</td>
+			<td style="width: 40%;">
+				<select name="entry_date_element">
+					<option value=""></option>
+					<?php foreach ($element_options as $element => $example) :?>
+						<?php $selected = ($element == $importer_entry_date_element) ? 'selected="selected"' : ''; ?>
+						<option value="<?=$element?>" <?=$selected?>><?=$element?> - <?=lang('content_type_for_example')?> <?=$example?></option>
+					<?php endforeach; ?>
+
+				</select>
+			</td>
+
+			<td>
+				<select name="default_entry_date">
+					<option value="time_of_import" selected="selected"><?=lang('importer_time_of_import')?></option>
+				</select>
+			&nbsp;
+				<label for="entry_date_offset"><?=lang('importer_entry_date_offset')?>:</label>
+					<input type="text" name="entry_date_offset" style="width: auto;" size="6" value="<?=$importer_entry_date_offset?>"  />
+					<?=lang('importer_entry_date_offset_seconds')?>
+			</td>
+		</tr>
+
+		<tr class="even">
+			<td style="width:30%;">
+				<label for="expiration_date_element"><?=lang('importer_channel_expiration_date')?></label>
+				<div class="subtext"><?=lang('importer_channel_expiration_date_subtext')?></div>
+			</td>
+			<td style="width: 40%;">
+				<select name="expiration_date_element">
+					<option value=""></option>
+					<?php foreach ($element_options as $element => $example) :?>
+						<?php $selected = ($element == $importer_expiration_date_element) ? 'selected="selected"' : ''; ?>
+						<option value="<?=$element?>" <?=$selected?>><?=$element?> - <?=lang('content_type_for_example')?> <?=$example?></option>
+					<?php endforeach; ?>
+
+				</select>
+			</td>
+
+			<td></td>
+		</tr>
+
+		<tr class="odd">
+			<td style="width:30%;">
+				<label for="author_element"><?=lang('importer_channel_author')?></label>
+				<div class="subtext">
+					<?=lang('importer_author_field_subtext')?>
+				</div>
+			</td>
+			<td style="width: 40%;">
+				<select name="author_element">
+					<option value=""></option>
+
+					<?php foreach ($element_options as $element => $example) :?>
+						<?php $selected = ($element == $importer_author_element) ? 'selected="selected"' : ''; ?>
+						<option value="<?=$element?>" <?=$selected?>><?=$element?> - <?=lang('content_type_for_example')?> <?=$example?></option>
+					<?php endforeach; ?>
+
+				</select>
+
+				&nbsp;&nbsp;
+				<select name="author_element_type">
+
+					<?php foreach ($author_field_options as $key => $value) :?>
+						<?php $selected = ($key == $importer_author_element_type) ? 'selected="selected"' : ''; ?>
+						<option value="<?=$key?>" <?=$selected?>><?=$value?></option>
+					<?php endforeach; ?>
+				</select>
+			</td>
+
+			<td>
+				<select name="default_author">
+					<?php foreach ($authors as $member_id => $member_data) :?>
+						<?php $selected = ($member_id == $importer_default_author) ? 'selected="selected"' : ''; ?>
+						<option value="<?=$member_id?>" <?=$selected?>><?=$member_data['screen_name']?></option>
+					<?php endforeach; ?>
+				</select>
+
+			</td>
+		</tr>
+
+		<tr class="even">
+			<td style="width:30%;">
+				<label for="status_element"><?=lang('importer_channel_status')?></label>
+				<div class="subtext"><?=lang('importer_channel_status_subtext')?></div>
+			</td>
+			<td style="width: 40%;">
+				<select name="status_element">
+					<option value=""></option>
+					<?php foreach ($element_options as $element => $example) :?>
+						<?php $selected = ($element == $importer_status_element) ? 'selected="selected"' : ''; ?>
+						<option value="<?=$element?>" <?=$selected?>><?=$element?> - <?=lang('content_type_for_example')?> <?=$example?></option>
+					<?php endforeach; ?>
+
+				</select>
+			</td>
+			<td>
+				<select name="default_status">
+					<?php foreach($statuses AS $key => $value) : ?>
+						<?php $selected = ($key == $importer_default_status) ? 'selected="selected"' : ''; ?>
+						<option value="<?=$key?>" <?=$selected?>><?=$value?></option>
+					<?php endforeach;?>
+
+				</select>
+			</td>
+		</tr>
+
+	</tbody>
+</table>
+
+<!-- END CHANNEL - META FIELDS -->
+
+
+<!-- CHANNEL - CUSTOM FIELDS -->
+<table class="mainTable" border="0" cellspacing="0" cellpadding="0">
+	<thead>
+		<tr>
+			<th style="width:30%;"><?=lang('channel_custom_fields')?></th>
+			<th><?=lang('channel_custom_field_element')?></th>
+			<th><?=lang('channel_custom_field_default')?></th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach($custom_fields as $field_id => $field_data) :?>
+
+			<?php $name = 'importer_field_id_'.$field_id.'_element'; ?>
+
+			<tr class="<?=$this->cycle('odd', 'even')?>">
+
+				<?php if (isset($field_data['field_element_callback'])) : ?>
+
+					<?=$field_data['field_element_callback']?>
+
+				<?php else :?>
+
+					<td style="width: 30%;">
+					<?php if ($field_data['field_required'] == 'y') :?>
+						<em class='required'>*</em>
+					<?php endif; ?>
+
+					<label for="field_id_<?=$field_id?>_element"><?=$field_data['field_label']?></label>
+
+					<?php if ( ! empty($field_type_subtext[$field_data['field_type']])) :?>
+
+						<div class="subtext">
+							<?=$field_type_subtext[$field_data['field_type']]?>
+						</div>
+
+					<?php endif;?>
+
+					</td>
+
+					<td style="width: 40%;">
+						<select name="field_id_<?=$field_id?>_element">
+							<option value=""></option>
+
+							<?php foreach ($element_options as $element => $example) :?>
+								<?php $selected = (isset(${$name}) && $element == ${$name}) ? 'selected="selected"' : ''; ?>
+								<option value="<?=$element?>" <?=$selected?>><?=$element?> - <?=lang('content_type_for_example')?> <?=$example?></option>
+							<?php endforeach; ?>
+						</select>
+					</td>
+
+					<td>
+						<a href="" rel="field_id_<?=$field_id;?>"><?=lang('importer_custom_field_default_show')?></a>
+
+						<div id="custom_field_default_div_field_id_<?=$field_id;?>" style="display:none;">
+							<?php $name = 'importer_default_field_id_'.$field_id; ?>
+							<textarea name="default_field_id_<?=$field_id;?>"><?=${$name};?></textarea>
+						</div>
+					</td>
+				<?php endif;?>
+			</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+
+<!-- END: CHANNEL - CUSTOM FIELDS -->
+
+
+
+<!-- CHANNEL - CATEGORIES -->
+
+<table class="mainTable" border="0" cellspacing="0" cellpadding="0">
+	<thead>
+		<tr>
+			<th style="width:30%;"><?=lang('importer_channel_categories')?></th>
+			<th><?=lang('importer_element')?></th>
+			<th><?=lang('importer_default_value')?></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="odd">
+			<td style="width:30%; vertical-align:top">
+				<label for="categories_element"><?=lang('importer_channel_categories')?></label>
+				<div class="subtext"><?=lang('importer_channel_default_categories_subtext')?></div>
+			</td>
+			<td style="width:40%;vertical-align:top">
+				<select name="categories_element">
+					<option value=""></option>
+					<?php foreach ($element_options as $element => $example) :?>
+						<?php $selected = ($element == $importer_categories_element) ? 'selected="selected"' : ''; ?>
+						<option value="<?=$element?>" <?=$selected;?>><?=$element?> - <?=lang('content_type_for_example')?> <?=$example?></option>
+					<?php endforeach; ?>
+				</select>
+			</td>
+			<td style="vertical-align:top">
+
+				<?php
+
+				$options = array();
+
+				foreach($categories as $key => $val)
+				{
+					foreach($val as $category)
+					{
+						$indent = ($category[5] != 1) ? repeater(NBS.NBS.NBS, $category[5]) : '';
+						$options[$key][$category[0]] = $indent.$category[1];
+					}
+				}
+
+				echo form_multiselect('default_categories[]', $options, $importer_default_categories, 'size="5"');
+
+				?>
+
+			</td>
+		</tr>
+
+		<tr class="even">
+			<td>
+				<label for="new_category_group"><?=lang('importer_add_categories_to_group')?></label>
+				<div class="subtext"><?=lang('importer_add_categories_to_group_subtext')?></div>
+			</td>
+			<td colspan="2">
+				<select name="new_category_group">
+					<option value=""><?=lang('importer_no_new_categories')?></option>
+					<?php foreach($category_groups as $group_id => $group_name): ?>
+						<?php $selected = ($group_id == $importer_new_category_group) ? 'selected="selected"' : ''; ?>
+						<option value="<?=$group_id?>" <?=$selected?>><?=$group_name?></option>
+					<?php endforeach;?>
+				</select>
+			</td>
+		</tr>
+		<tr class="odd">
+			<td>
+				<label for="category_delimiter"><?=lang('importer_channel_category_delimiter')?></label>
+				<div class="subtext"><?=lang('importer_channel_category_delimiter_subtext')?></div>
+			</td>
+			<td colspan="2"><input type="text" name="category_delimiter" style="width: auto;" size="6" value="<?=$importer_category_delimiter?>" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- END CHANNEL - CATEGORIES -->
+
+
+<!-- DUPLICATE ENTRIES? -->
+
+<table class="mainTable" border="0" cellspacing="0" cellpadding="0">
+	<thead>
+		<tr>
+			<th colspan="2"><?=lang('importer_duplicate_entries')?></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="odd">
+			<td style="width:30%;">
+				<label for="duplicate_field"><?=lang('importer_duplicate_field')?></label>
+				<div class="subtext"><?=lang('importer_duplicate_field_subtext')?></div>
+			</td>
+			<td>
+				<select name="duplicate_field">
+					<option value=""></option>
+					<option value="title" <?=(('title' == $importer_duplicate_field) ? 'selected="selected"' : '')?>><?=lang('importer_channel_entry_title')?></option>
+
+					<?php foreach($custom_fields as $field_id => $field_data) :?>
+						<?php $selected = ('field_id_'.$field_id == $importer_duplicate_field) ? 'selected="selected"' : '';?>
+						<option value="field_id_<?=$field_id?>" <?=$selected?>><?=$field_data['field_label']?></option>
+					<?php endforeach; ?>
+
+				</select>
+			</td>
+		</tr>
+
+		<tr class="even">
+			<td style="width:30%;">
+				<label for="duplicate_field_two"><?=lang('importer_duplicate_field_two')?></label>
+				<div class="subtext"><?=lang('importer_duplicate_field_two_subtext')?></div>
+			</td>
+			<td>
+				<select name="duplicate_field_two">
+					<option value=""></option>
+					<option value="title" <?=(('title' == $importer_duplicate_field_two) ? 'selected="selected"' : '')?>><?=lang('importer_channel_entry_title')?></option>
+
+					<?php foreach($custom_fields as $field_id => $field_data) :?>
+						<?php $selected = ('field_id_'.$field_id == $importer_duplicate_field_two) ? 'selected="selected"' : '';?>
+						<option value="field_id_<?=$field_id?>" <?=$selected?>><?=$field_data['field_label']?></option>
+					<?php endforeach; ?>
+
+				</select>
+			</td>
+		</tr>
+
+		<tr class="odd">
+			<td style="width:30%;">
+				<label for="duplicate_entry_action"><?=lang('importer_duplicate_entry_action')?></label>
+			</td>
+			<td colspan="2">
+				<select name="duplicate_entry_action">
+					<?php
+						foreach(array('do_nothing','update_entry', 'delete_entry', 'delete_entry_insert_new') as $option) :
+							$selected = ($option == $importer_duplicate_entry_action) ? 'selected="selected"' : '';
+					?>
+						<option value="<?=$option?>" <?=$selected?>><?=lang('importer_'.$option)?></option>
+
+					<?php endforeach; ?>
+
+				</select>
+
+			</td>
+		</tr>
+
+		<tr class="even">
+			<td style="width:30%;">
+				<label for="duplicate_entry_status_action"><?=lang('importer_duplicate_entry_status_action')?></label>
+			</td>
+			<td colspan="2">
+				<select name="duplicate_entry_status_action">
+					<?php
+						foreach(array('update_status','do_not_update_status') as $option) :
+							$selected = ($option == $importer_duplicate_entry_status_action) ? 'selected="selected"' : '';
+					?>
+						<option value="<?=$option?>" <?=$selected?>><?=lang('importer_'.$option)?></option>
+
+					<?php endforeach; ?>
+
+				</select>
+
+			</td>
+		</tr>
+
+		<tr class="odd">
+			<td style="width:30%;">
+				<label for="duplicate_entry_category_action"><?=lang('importer_duplicate_entry_category_action')?></label>
+			</td>
+			<td colspan="2">
+				<select name="duplicate_entry_category_action">
+					<?php
+						foreach(array('delete_old_add_new','keep_old_add_new') as $option) :
+							$selected = ($option == $importer_duplicate_entry_category_action) ? 'selected="selected"' : '';
+					?>
+						<option value="<?=$option?>" <?=$selected?>><?=lang('importer_categories_'.$option)?></option>
+
+					<?php endforeach; ?>
+
+				</select>
+
+			</td>
+		</tr>
+
+	</tbody>
+</table>
+
+<!-- END: DUPLICATE ENTRIES? -->
+
+
+
+
+<!-- NOTIFICATIONS -->
+
+<table class="mainTable" border="0" cellspacing="0" cellpadding="0">
+	<thead>
+		<tr>
+			<th colspan="2"><?=lang('importer_notifications')?></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="odd">
+			<td style="width:30%; vertical-align:top">
+				<label for="notification_emails"><?=lang('importer_notification_emails')?></label>
+				<div class="subtext"><?=lang('importer_notification_emails_subtext')?></div>
+			</td>
+
+			<td style="vertical-align:top">
+			<textarea
+				   class="textarea" cols="90"
+				   rows="2"   		name="notification_emails"
+				   style="width:75%"><?=$importer_notification_emails?></textarea>
+			</td>
+		</tr>
+
+		<tr class="even">
+			<td style="width:30%;vertical-align:top">
+				<label for="notification_cc"><?=lang('importer_notification_cc')?></label>
+				<div class="subtext"><?=lang('importer_notification_cc_subtext')?></div>
+			</td style="vertical-align:top">
+
+			<td>
+			<textarea
+				   class="textarea" cols="90"
+				   rows="2"   		name="notification_cc"
+				   style="width:75%"><?=$importer_notification_cc?></textarea>
+			</td>
+		</tr>
+
+		<tr class="odd">
+			<td style="width:30%;">
+				<label for="notification_subject"><?=lang('importer_notification_subject')?></label>
+			</td>
+
+			<td>
+				<input type="text" name="notification_subject" value="<?=$caller->output($importer_notification_subject)?>"  />
+			</td>
+		</tr>
+
+		<tr class="even">
+			<td style="vertical-align:top">
+				<label for="notification_message"><?=lang('importer_notification_message')?></label>
+				<div class="subtext"><?=lang('importer_notification_message_subtext')?></div>
+			</td>
+
+			<td sstyle="width:30%; vertical-align:top">
+			<textarea
+				   class="textarea" cols="90"
+				   rows="6"   		name="notification_message"
+				   style="width:75%"><?=$importer_notification_message?></textarea>
+			</td>
+		</tr>
+
+		<tr class="odd">
+			<td style="width:30%;">
+				<label for="notification_rules"><?=lang('importer_notification_rules')?></label>
+			</td>
+
+			<td>
+				<select name="notification_rules">
+					<?php
+						foreach(array('disabled','start','end','start_end') as $option) :
+							$selected = ($option == $importer_notification_rules) ? 'selected="selected"' : '';
+					?>
+						<option value="<?=$option?>" <?=$selected?>><?=lang('importer_notification_rules_'.$option)?></option>
+
+					<?php endforeach; ?>
+
+				</select>
+			</td>
+		</tr>
+
+
+	</tbody>
+</table>
+
+<!-- END: NOTIFICATION -->
+
+<input type="submit" name="submit_import" value="<?=lang('save_and_do_import')?>" class="submit" />
+&nbsp;
+<input type="submit" name="submit_finish" value="<?=lang('save_and_finish')?>" class="submit" />
+
+</form>
+
+
+<!-- Solspace Modal: Used for custom field defaults -->
+<div id="solspace_modal_overlay" class="solspace_modal_overlay">
+	<h2>Title</h2>
+
+	<p><textarea name="solspace_modal_overlay_textarea"></textarea></p>
+
+	<button class="modal_close_save submit close" ><?=lang('importer_modal_save')?></button>
+
+	<div class="subtext" style="margin-top:8px;">* <?=lang('modal_press_esc_to_close_and_discard')?></div>
+
+</div>

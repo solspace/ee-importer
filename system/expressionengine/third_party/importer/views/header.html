@@ -1,0 +1,38 @@
+<script type="text/javascript">
+	var Solspace = window.Solspace = window.Solspace || {};
+
+	Solspace.importer = Solspace.importer || {};
+	Solspace.importer.lang = {
+		'modal_close_button' : '<?php echo addslashes(lang("modal_close_button"))?>',
+		'error_ajax_request' : '<?php echo addslashes(lang("error_ajax_request"))?>'
+	};
+
+	Solspace.importer.connectionTestUrl = '<?=$connection_test_url?>';
+</script>
+
+<?php if ($message != ''):?>
+	<script type="text/javascript">
+		var Solspace = window.Solspace = window.Solspace || {};
+		Solspace.message = '<?php echo addslashes($message);?>';
+	</script>
+<?php endif;?>
+
+<style type="text/css">
+	.solspace_modal_overlay a.close {
+    	background-image:url(<?=$importer_theme_path?>images/close.png);
+    }
+</style>
+
+<p id="solspace_version_number"><strong><?=lang('importer_module_name')?> <?=$module_version?></strong></p>
+
+<ul class="tab_menu" id="tab_menu_tabs">
+<?php foreach($module_menu AS $menu_name => $menu_item) : ?>
+	<li class="content_tab<?=($menu_name == $module_menu_highlight) ? ' current': ''?>">
+		<a  <?php if (isset($menu_item['new_window']) AND
+				$menu_item['new_window']): ?>onclick="window.open(this.href); return false;"<?php endif;?>
+	href="<?=$menu_item['link']?>"><?=$menu_item['title']?></a>
+	</li>
+<?php endforeach; ?>
+</ul>
+
+<div style="height:1px; margin-bottom:-1px;" class="clear_left shun"></div>

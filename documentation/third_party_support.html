@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>		<html class="no-js ie6"> <![endif]-->
+<!--[if IE 7]>			<html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js ie8"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html class="no-js"> <!--<![endif]-->
+	<head lang="en">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>Third Party Add-on Support | Importer | Solspace Addon Documentation</title>
+		<meta name="description" content="" />
+		<meta name="copyright" content="(c) 2010 Copyright content: Copyright design: Solspace, Inc."/>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="assets/css/normalize.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="assets/fancybox/jquery.fancybox-1.3.4.css" />
+		<link href="assets/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+		<link href="assets/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+		<script src="assets/js/modernizr.min.js"></script>
+	</head>
+	<body>
+		<!--[if lt IE 8]>
+			<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+		<![endif]-->
+
+		<header>
+			<div class="header-inner">
+				<div class="logo">
+					<img src="assets/images/logo.png" />
+				</div>
+
+				<div class="bread_crumbs">
+					<ul class="crumbs">
+						<li class="first"><a href="index.html">Importer</a></li>
+						<li>Third Party Add-on Support</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<div class="content-wrapper">
+			<nav class="toc">
+				<ul>
+<li><a href="https://solspace.com/expressionengine/importer/">More Info | Purchase</a></li>
+<li><a href="change_log.html">Change Log</a></li>
+<li><a href="install_update.html">Install / Update</a></li>
+<li><a href="control_panel.html">Control Panel</a></li>
+<li><a href="data_types.html">Data Types</a></li>
+<li><a href="content_types.html">Content Types</a></li>
+<li><a href="data_sources.html">Data Sources</a></li>
+<li><a href="file_sizes_max_imports.html">File Sizes &amp; Maximum Imports</a></li>
+<li><a href="cron_importing.html">Cron Importing</a></li>
+<li class="current"><a href="third_party_support.html">Third Party Add-on Support</a></li>
+<li><h3>Requirements</h3><div class="requirements">
+
+<ul>
+<li>EE 2.10.x</li>
+<li>PHP 5.2+</li>
+<li>MySQL 5+</li>
+<li>All modern browsers or IE 10+</li>
+</ul></div></li>
+</ul>
+			</nav>
+
+			<article class="docs">
+				<p>Importer includes third party add-on support for the following field types when importing into Channel Entries:</p>
+
+<ul>
+<li><a href="#solspace_tag">Solspace Tag 4+</a></li>
+<li><a href="#pt_playa">Pixel &amp; Tonic Playa 4.2+</a></li>
+<li><a href="#pt_matrix">Pixel &amp; Tonic Matrix 2.3+</a></li>
+</ul>
+
+<p><a name="solspace_tag"></a></p>
+
+<h2>Solspace <a href="http://www.solspace.com/software/detail/tag/">Tag 4+</a></h2>
+
+<p>Importer allows you to create import profiles that can map data into a <a href="https://solspace.com/expressionengine/tag">Solspace Tag</a> field. This requires that you have Solspace Tag 4+ installed and a Tag fieldtype field already created. You can then choose from a variety of delimiters, depending on how your Tag data is formatted: <strong>colon</strong>, <strong>comma</strong>, <strong>doublepipe</strong>, <strong>newline</strong>, <strong>semicolon</strong>, <strong>space</strong>, <strong>tab</strong>, <strong>tilde</strong>. You can also set a default tag or set of tags to be applied to each entry.</p>
+
+<p><a href="images/importer_solspacetag_import.jpg"><img src="images/importer_solspacetag_import.jpg" alt="click to enlarge" /></a></p>
+
+<p><a name="pt_playa"></a></p>
+
+<h2>Pixel &amp; Tonic <a href="http://pixelandtonic.com/playa">Playa 4.2+</a></h2>
+
+<p>Importer allows you to create import profiles that can map data into
+<a href="http://pixelandtonic.com/playa">Playa</a> fields. This requires that you
+have Pixel &amp; Tonic Playa 4.2+ installed. The Playa fieldtype can have
+data as a list of entry IDs separated by a comma or pipe (|), or as
+stored in the EE database with an <strong>entry ID</strong>, <strong>title</strong>, and <strong>URL
+title</strong> (ex: <strong>[&#35;&#35;&#35;] Entry Title - entry_url_title</strong>) and multiple
+entries separated by a line break.</p>
+
+<p><strong>CSV</strong></p>
+
+<pre class="brush: html;">"" // no entries
+"1,2" // entry ID's 1 and 2
+"2|5|8" // entry ID's 2, 5, and 8
+</pre>
+
+<p><strong>XML</strong></p>
+
+<pre class="brush: html;">&lt;playa_field_name&gt;&lt;/playa_field_name&gt; // no entries
+&lt;playa_field_name&gt;1,2,3&lt;/playa_field_name&gt; // entry ID's 1, 2, and 3
+&lt;playa_field_name&gt;2|5|8&lt;/playa_field_name&gt; // entry ID's 2, 5, and 8
+&lt;playa_field_name&gt;
+    &lt;entry_id&gt;1&lt;/entry_id&gt;
+    &lt;entry_id&gt;2&lt;/entry_id&gt;
+    &lt;entry_id&gt;3&lt;/entry_id&gt;
+&lt;/playa_field_name&gt;
+</pre>
+
+<p><strong>JSON</strong></p>
+
+<pre class="brush: html;">"playa_field_name":[] // no entries
+"playa_field_name":["1","2"] // entry ID's 1 and 2
+"playa_field_name":"1,2,3" // entry ID's 1, 2, and 3
+"playa_field_name":"2|5|8" // entry ID's 2, 5, and 8
+</pre>
+
+<p><a href="images/importer_ptplaya_import.jpg"><img src="images/importer_ptplaya_import.jpg" alt="click to enlarge" /></a></p>
+
+<p><a name="pt_matrix"></a></p>
+
+<h2>Pixel &amp; Tonic <a href="http://pixelandtonic.com/matrix">Matrix 2.3+</a></h2>
+
+<p>Importer allows you to create import profiles that can map data into
+<a href="http://pixelandtonic.com/matrix">Matrix</a> fields. This requires that you
+have Pixel &amp; Tonic Matrix 2.3+ installed. Importer supports the
+following Matrix Field Types: <strong>Date</strong>, <strong>Playa</strong>, <strong>Text</strong>, and
+<strong>Wygwam</strong>. You can choose from a variety of formats for your data:</p>
+
+<p><strong>CSV</strong></p>
+
+<pre class="brush: html;">"One","Two","Three"
+</pre>
+
+<p><strong>XML</strong></p>
+
+<pre class="brush: html;">&lt;matrix_field&gt;
+    &lt;matrix_cell_1&gt;One&lt;/matrix_cell_1&gt;
+    &lt;matrix_cell_2&gt;Two&lt;/matrix_cell_2&gt;
+&lt;/matrix_field&gt;
+
+&lt;matrix_cell_1&gt;One&lt;/matrix_cell_1&gt;
+&lt;matrix_cell_2&gt;Two&lt;/matrix_cell_2&gt;
+&lt;matrix_cell_3&gt;Three&lt;/matrix_cell_3&gt;
+
+&lt;matrix_field&gt;
+    &lt;matrix_entry&gt;
+        &lt;cell_one&gt;The Bird is the word&lt;/cell_one&gt;
+        &lt;cell_two&gt;1332650167&lt;/cell_two&gt;
+        &lt;cell_three&gt;1|2&lt;/cell_three&gt;
+    &lt;/matrix_entry&gt;
+    &lt;matrix_entry&gt;
+        &lt;cell_one&gt;Have you not heard?&lt;/cell_one&gt;
+        &lt;cell_two&gt;2011-02-28 10:28 AM&lt;/cell_two&gt;
+        &lt;cell_three&gt;4,6&lt;/cell_three&gt;
+    &lt;/matrix_entry&gt;
+&lt;/matrix_field&gt;
+</pre>
+
+<p><strong>JSON</strong></p>
+
+<pre class="brush: html;">"matrix_field": [
+    {"cell_one":"The Bird is the word","cell_two":"1332650167", "cell_three":"[1] Entry Title A entry_title_a\r\n[2] Entry Title B entry_title_b"},
+    {"cell_one":"Have you not heard?","cell_two":"2011-02-28 10:28 AM", "cell_three":"2,1"}
+]
+
+"matrix2": {
+    "cell_1":"The Bird is the word",
+    "cell_2":"2011-02-28 10:28 AM",
+    "cell_3":"[1] Entry Title A entry_title_a\r\n[2] Entry Title B entry_title_b"
+}
+
+"matrix3_cell_1":"The Bird is the word",
+"matrix3_cell_2":"2012-02-28 10:28 AM",
+"matrix3_cell_3":"[1] Entry Title A entry_title_a\r\n[2] Entry Title B entry_title_b",
+</pre>
+
+<p><a href="images/importer_ptmatrix_import.jpg"><img src="images/importer_ptmatrix_import.jpg" alt="click to enlarge" /></a></p>
+			</article>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+		<script src="assets/syntaxhighlighter/scripts/shCore.js"></script>
+		<script src="assets/syntaxhighlighter/scripts/shAutoloader.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>

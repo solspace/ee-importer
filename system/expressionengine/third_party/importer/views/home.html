@@ -1,0 +1,76 @@
+<form action="<?=$this->output($base_uri.'&method=start_profile');?>" method="post" id="module_homepage_form">
+	<input type="hidden" name="<?=$csrf_hidden_name?>"	value="<?=$CSRF_TOKEN?>" />
+
+	<h3 style="margin:20px 0 7px 0;"><?=lang('create_new_importer')?></h3>
+
+	<div>
+		<strong><?=lang('from')?></strong>
+		&nbsp;
+		<select name="datatype" id="datatype">
+			<?php foreach($datatypes as $name => $label): ?>
+				<option value="<?=$name?>"><?=$caller->output($label)?></option>
+			<?php endforeach; ?>
+		</select>
+		&nbsp;
+		<strong><?=lang('to')?></strong>
+		&nbsp;
+		<select name="content_type" id="content_type"></select>
+
+		<select name="content_type_all" id="content_type_all" style="display:none;">
+			<?php foreach($content_types as $name => $label): ?>
+				<option class="<?=implode(' ', $this->actions()->load_content_type($name)->allowed_datatypes)?>" value="<?=$name?>"><?=$caller->output($label)?></option>
+			<?php endforeach; ?>
+		</select>
+
+		&nbsp;
+		<input type="submit" value="<?=lang('create_new_importer')?>" class="submit" />
+	</div>
+</form>
+
+<div style="margin-top:22px;">
+
+	<h3 style="margin-bottom:3px;"><?=lang('saved_imports')?></h3>
+
+	<table class="mainTable" border="0" cellspacing="0" cellpadding="0">
+		<thead>
+			<tr>
+				<th><?=lang('importer_name')?></th>
+				<th><?=lang('importer_datatype')?></th>
+				<th><?=lang('importer_content_type')?></th>
+				<th><?=lang('importer_run_now')?></th>
+				<th><?=lang('importer_cron_urls')?></th>
+				<th><?=lang('importer_delete')?></th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<?php if (count($importer_profiles) == 0) : ?>
+				<tr class="even"><td colspan="5"><?=lang('no_importer_profiles')?></td></tr>
+			<?php endif;?>
+
+			<?php foreach($importer_profiles as $profile_id => $data) : ?>
+
+			<tr class="<?=$caller->cycle('even', 'odd')?>">
+				<td><a href="<?=$caller->base?>&amp;method=edit_profile_name&amp;profile_id=<?=$profile_id?>"><?=$data['name']?></a></td>
+				<td><?=$data['datatype']?></td>
+				<td><?=$data['content_type']?></td>
+
+				<?php if ($data['data_source'] == 'manual_upload') : ?>
+					<td><a href="<?=$caller->base?>&amp;method=manual_import&amp;profile_id=<?=$profile_id?>"><?=lang('importer_run_profile')?></a></td>
+					<td><?=lang('manual_upload_no_cron')?></td>
+				<?php else : ?>
+					<td><a href="<?=$caller->base?>&amp;method=perform_import&amp;profile_id=<?=$profile_id?>"><?=lang('importer_run_profile')?></a></td>
+					<td><a href="<?=$cron_url?>&amp;hash=<?=$data['hash']?>"><?=lang('importer_cron')?></a>
+						&mdash; <a href="<?=$cron_url?>&amp;hash=<?=$data['hash']?>&amp;batch=yes"><?=lang('importer_cron_batch')?></a>**
+						(<?=lang('right_click_to_copy')?>)
+					</td>
+				<?php endif;?>
+				<td><a href="<?=$caller->base?>&amp;method=delete_profile_confirm&amp;profile_id=<?=$profile_id?>"><?=lang('importer_delete')?></a></td>
+			</tr>
+			<?php endforeach; ?>
+		</tbody>
+	</table>
+
+	<p class="subtext">** <?=lang('importer_batch_processing_explaination')?></p>
+
+</div>

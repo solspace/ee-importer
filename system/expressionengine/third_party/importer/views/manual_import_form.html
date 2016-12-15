@@ -1,0 +1,29 @@
+<form action="<?=$this->output($base_uri.'&method=perform_import');?>" enctype="multipart/form-data" method="post" id="module_importer_profile_source">
+	<input type="hidden" name="<?=$csrf_hidden_name?>"	value="<?=$CSRF_TOKEN?>" />
+	<input type="hidden" name="profile_id" value="<?=$importer_profile_id?>" />
+
+	<table class="mainTable" border="0" cellspacing="0" cellpadding="0">
+		<thead>
+			<tr>
+				<th colspan="2">
+					<?=lang('import_source')?>
+				</th>
+			</tr>
+		</thead>
+
+		<tbody>
+		<!-- SOURCE: Manual Upload -->
+		<tr class="odd" id="source_manual_upload">
+			<td style="width:35%; vertical-align:top;">
+				<label for="manual_upload"><?=lang('importer_manual_upload')?></label>
+			</td>
+			<td>
+				<input name="manual_upload" type="file" style="width:50%;">
+			</td>
+		</tr>
+
+		</tbody>
+	</table>
+
+	<input type="submit" name="submit" value="<?=lang('importer_continue')?>" class="submit" />
+</form>

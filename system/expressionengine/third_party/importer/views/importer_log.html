@@ -1,0 +1,68 @@
+<form action="<?=$this->output($base_uri.'&method=delete_logs_confirm');?>" method="post" id="module_import_log_form">
+	<input type="hidden" name="<?=$csrf_hidden_name?>"	value="<?=$CSRF_TOKEN?>" />
+
+	<table class="mainTable magic_checkbox_table" border="0" cellspacing="0" cellpadding="0">
+		<thead>
+			<tr>
+				<th><?=lang('import_date')?></th>
+				<th><?=lang('importer_profile_name')?></th>
+				<th><?=lang('importer_datatype')?></th>
+				<th><?=lang('import_details')?></th>
+				<th style='width:4%;'>
+					<input type="checkbox"  style="float:right; margin-right:6px;"
+							type="checkbox" name="toggle_all_checkboxes" />
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<?php if (count($imports) == 0) : ?>
+				<tr class="even"><td colspan="5"><?=lang('no_imports_logged')?></td></tr>
+			<?php endif;?>
+
+			<?php foreach($imports AS $data) : ?>
+
+			<tr class="<?=$caller->cycle('odd', 'even')?>">
+				<td id="log_id_<?=$data['log_id']?>_date"><?=$data['date']?></td>
+				<td><a href="<?=$caller->base?>&amp;method=edit_profile_name&amp;profile_id=<?=$data['profile_id']?>"><?=$data['name']?></a></td>
+				<td><?=$data['datatype']?></td>
+				<td><a href="" class="solpace_import_log" rel="<?=$data['log_id']?>"><?=lang('import_details')?></a>
+
+					<div id="log_details_<?=$data['log_id'];?>" style="display:none;">
+						<?=$data['details']?>
+					</div>
+
+				</td>
+				<td>
+					<input 	type="checkbox"
+							style="float:right; margin-right:4px;"
+							id="delete_log_id_<?=$data['log_id'];?>"
+							name="selected[]"
+							value="<?=$this->output($data['log_id']);?>" />
+				</td>
+			</tr>
+			<?php endforeach; ?>
+
+		<tfoot>
+			<tr class="<?=$this->cycle('odd', 'even');?>">
+				<td colspan="4"></td>
+				<td><input style="float:right; margin-right:4px;" class="checkbox" type="checkbox" name="toggle_all_checkboxes" /></td>
+			</tr>
+		</tfoot>
+
+		</tbody>
+	</table>
+
+	<input type="submit" name="submit" value="<?=lang('importer_delete_logs')?>" class="submit" />
+
+</form>
+
+<!-- Connection Test Modal -->
+<div id="solspace_modal_overlay" class="solspace_modal_overlay">
+	<h2>Title</h2>
+
+	<p>Content</p>
+
+	<div class="subtext">* <?=lang('modal_press_esc_to_close')?></div>
+
+</div>

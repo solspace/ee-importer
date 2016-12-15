@@ -1,0 +1,24 @@
+
+
+1. They need to create a Upload Destination in the CP for their directories.
+    * http://gallery2.local/system/index.php?S=0&D=cp&C=content_files&M=file_upload_preferences
+    
+2. Assets needs to index this directory.
+    
+3. They should create an Assets field type for each Channel
+
+4. Our Preferences needs to match *each* Gallery in EE 1.x to Assets/Upload Directory
+5. Our Preferences needs to choose the Assets field type for each channel
+        * we will need to do a DISTINCT query to find list for preferences form.
+
+6. We go through each Gallery
+    - Match file name to file name
+    - Import gallery_entry_id, title, date, author, caption, tags, categories, status (latter two if extension used to add metadata to Assets)
+    - Create relation in Assets from entry to asset
+    
+=======
+    
+The "author" field in Assets is just a text input.  It is not related to a member.  Add to the Assets Field Type Extension? Yes!!
+
+The thumbnails and medium images are ignored as those will be taken care of with image resizing plugins.
+

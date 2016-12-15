@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>		<html class="no-js ie6"> <![endif]-->
+<!--[if IE 7]>			<html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js ie8"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html class="no-js"> <!--<![endif]-->
+	<head lang="en">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>Content Types | Importer | Solspace Addon Documentation</title>
+		<meta name="description" content="" />
+		<meta name="copyright" content="(c) 2010 Copyright content: Copyright design: Solspace, Inc."/>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="assets/css/normalize.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="assets/fancybox/jquery.fancybox-1.3.4.css" />
+		<link href="assets/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+		<link href="assets/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+		<script src="assets/js/modernizr.min.js"></script>
+	</head>
+	<body>
+		<!--[if lt IE 8]>
+			<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+		<![endif]-->
+
+		<header>
+			<div class="header-inner">
+				<div class="logo">
+					<img src="assets/images/logo.png" />
+				</div>
+
+				<div class="bread_crumbs">
+					<ul class="crumbs">
+						<li class="first"><a href="index.html">Importer</a></li>
+						<li>Content Types</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<div class="content-wrapper">
+			<nav class="toc">
+				<ul>
+<li><a href="https://solspace.com/expressionengine/importer/">More Info | Purchase</a></li>
+<li><a href="change_log.html">Change Log</a></li>
+<li><a href="install_update.html">Install / Update</a></li>
+<li><a href="control_panel.html">Control Panel</a></li>
+<li><a href="data_types.html">Data Types</a></li>
+<li class="current"><a href="content_types.html">Content Types</a></li>
+<li><a href="data_sources.html">Data Sources</a></li>
+<li><a href="file_sizes_max_imports.html">File Sizes &amp; Maximum Imports</a></li>
+<li><a href="cron_importing.html">Cron Importing</a></li>
+<li><a href="third_party_support.html">Third Party Add-on Support</a></li>
+<li><h3>Requirements</h3><div class="requirements">
+
+<ul>
+<li>EE 2.10.x</li>
+<li>PHP 5.2+</li>
+<li>MySQL 5+</li>
+<li>All modern browsers or IE 10+</li>
+</ul></div></li>
+</ul>
+			</nav>
+
+			<article class="docs">
+				<p>Importer allows you to import into three different Content Types:</p>
+
+<ul>
+<li><a href="#channel_entries">Channel Entries</a></li>
+<li><a href="#members">Members</a></li>
+<li><a href="#playa">Playa</a></li>
+</ul>
+
+<!--
+
+<a name="assets"></a>
+Assets module
+------------
+
+The Assets importer accepts data only from the ExpressionEngine 1.x [Gallery module](data_types.md#gallery_entries).
+
+-->
+
+<p><a name="channel_entries"></a></p>
+
+<h2>Channel Entries</h2>
+
+<p>Channel Entries importer accepts data in the form of CSV, JSON, and XML via an uploaded, local, or remote file.  More information on the allowed <a href="data_sources.html">Data Sources</a> and <a href="data_types.html">Data Types</a>.</p>
+
+<p><strong>Entry and Expiration Dates.</strong> These dates can come in various formats when importing and will be coverted automatically. Please 
+read the <a href="http://www.php.net/manual/en/function.strtotime.php">strtotime()</a> documentation for more information.</p>
+
+<p><a name="members"></a></p>
+
+<h2>Members</h2>
+
+<p>Member importer accepts data in the form of CSV, JSON, and XML via an uploaded, local, or remote file.  More information on the allowed <a href="data_sources.html">Data Sources</a> and <a href="data_types.html">Data Types</a>.</p>
+
+<p><a name="playa"></a></p>
+
+<h2>Playa</h2>
+
+<p>The Playa field data importer accepts data from either the native <a href="data_types.html#ee_relationships">Relationship custom field</a> type or the <a href="data_types.html#playa_fields">Playa custom field</a> type (multiple fields into one).</p>
+			</article>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+		<script src="assets/syntaxhighlighter/scripts/shCore.js"></script>
+		<script src="assets/syntaxhighlighter/scripts/shAutoloader.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>

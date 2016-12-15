@@ -1,0 +1,145 @@
+<script type="text/javascript">
+	var Solspace = window.Solspace = window.Solspace || {};
+	Solspace.importer = Solspace.importer || {};
+	Solspace.importer.lang = Solspace.importer.lang || {}
+	Solspace.importer.lang.beginning_connection_test =
+		'<?=addslashes(lang("beginning_connection_test"))?>';
+	Solspace.importer.lang.connection_test_underway_please_standby =
+		'<?=addslashes(lang("connection_test_underway_please_standby"))?>'
+</script>
+
+<form action="<?=$this->output($base_uri.'&method=save_profile_source');?>" enctype="multipart/form-data" method="post" id="module_importer_profile_source">
+	<input type="hidden" name="<?=$csrf_hidden_name?>"	value="<?=$CSRF_TOKEN?>" />
+	<input type="hidden" name="profile_id" value="<?=$importer_profile_id?>" />
+
+		<table class="mainTable" id="import_source" border="0" cellspacing="0" cellpadding="0">
+		<thead>
+			<tr>
+				<th colspan="2">
+					<?=lang('import_source')?>
+				</th>
+			</tr>
+		</thead>
+
+		<tbody>
+		<tr class="even data_source">
+			<td style="width:35%; vertical-align:top;">
+				<label for="data_source"><?=lang('importer_data_source')?></label>
+				<div class="subtext"><?=lang('importer_data_source_subtext')?></div>
+			</td>
+			<td>
+				<select class="select" name="data_source" id="data_source">
+					<option value=""><?=$this->output(lang('choose_data_source'))?></option>
+					<?php
+						foreach($data_sources as $source) :
+							$selected = ($source == $importer_data_source) ? 'selected="selected"' : '';
+					?>
+						<option value="<?=$this->output($source)?>" <?=$selected?>><?=$this->output(lang('importer_data_source_'.$source))?></option>
+					<?php endforeach;?>
+				</select>
+			</td>
+		</tr>
+
+		<!-- SOURCE: Local File -->
+		<tr class="odd for_filename">
+			<td style="width:35%; vertical-align:top;">
+				<label for="filename"><?=lang('importer_local_filename')?></label>
+				<div class="subtext"><?=lang('importer_local_filename_subtext')?></div>
+			</td>
+			<td>
+				<input type="text" name="filename" style="width:70%;" value="<?=$importer_filename?>" />
+			</td>
+		</tr>
+
+		<!-- SOURCE: Remote URL -->
+		<tr class="odd for_url">
+			<td style="width:35%; vertical-align:top;">
+				<label for="remote_url"><?=lang('importer_remote_url')?></label>
+				<div class="subtext"><?=lang('importer_remote_url_subtext')?></div>
+			</td>
+			<td>
+				<input type="text" name="remote_url" style="width:70%;" value="<?=$importer_remote_url?>" />
+			</td>
+		</tr>
+
+		<!-- SOURCE: Remote URL - HTTP Auth - Username -->
+		<tr class="even for_url">
+			<td style="width:35%; vertical-align:top;">
+				<label for="http_auth_username"><?=lang('importer_http_auth_username')?></label>
+				<div class="subtext"><?=lang('importer_http_auth_username_subtext')?></div>
+			</td>
+			<td>
+				<input type="text" name="http_auth_username" style="width:70%;" value="<?=$importer_http_auth_username?>" />
+			</td>
+		</tr>
+
+		<!-- SOURCE: Remote URL - HTTP Auth - Password -->
+		<tr class="odd for_url">
+			<td style="width:35%; vertical-align:top;">
+				<label for="http_auth_password"><?=lang('importer_http_auth_password')?></label>
+			</td>
+			<td>
+				<input type="text" name="http_auth_password" style="width:70%;" value="<?=$importer_http_auth_password?>" />
+			</td>
+		</tr>
+
+		<!-- SOURCE: S/FTP-->
+		<?php foreach(array('ftp_host', 'ftp_username', 'ftp_password', 'ftp_port', 'ftp_path') as $name) : ?>
+		<?php $full_name = 'importer_'.$name;?>
+		<tr class="<?=$caller->cycle('odd', 'even')?> for_ftp for_sftp">
+			<td style="width:35%; vertical-align:top;">
+				<label for="<?=$name?>"><?=lang('importer_'.$name)?></label>
+				<?php if (isset(ee()->lang->language['importer_'.$name.'_subtext'])) : ?>
+					<div class="subtext"><?=lang('importer_'.$name.'_subtext')?></div>
+				<?php endif;?>
+			</td>
+			<td>
+				<input type="text" name="<?=$name?>" style="width:70%;" value="<?=${$full_name}?>" />
+			</td>
+		</tr>
+		<?php endforeach; ?>
+
+		<!-- AJAX Test: S/FTP -->
+		<tr class="even for_ftp for_sftp">
+			<td style="width:35%; vertical-align:top;">
+				<label for="ftp_connection_test"><?=lang('importer_ftp_test')?></label>
+				<div class="subtext"><?=lang('importer_ftp_test_subtext')?></div>
+			</td>
+			<td>
+				<button class="solpace_modal_overlay_trigger submit" name="ftp_connection_test" id="ftp_connection_test">
+					<?=lang('ftp_perform_connection_test')?>
+				</button>
+			</td>
+		</tr>
+
+		<!-- SOURCE: Manual Upload -->
+		<tr class="odd for_manual_upload">
+			<td style="width:35%; vertical-align:top;">
+				<label for="manual_upload"><?=lang('importer_manual_upload')?></label>
+				<div class="subtext"><?=lang('importer_manual_upload_subtext')?></div>
+			</td>
+			<td>
+				<input name="manual_upload" type="file" style="width:50%;">
+			</td>
+		</tr>
+
+		<?=$additional_source_fields?>
+
+		</tbody>
+	</table>
+
+	<?=$additional_datatype_fields?>
+
+	<input type="submit" name="submit" value="<?=lang('importer_continue')?>" class="submit" />
+</form>
+
+
+<!-- Connection Test Modal -->
+<div id="solspace_modal_overlay" class="solspace_modal_overlay">
+	<h2>Title</h2>
+
+	<p>Content</p>
+
+	<div class="subtext">* <?=lang('modal_press_esc_to_close')?></div>
+
+</div>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>		<html class="no-js ie6"> <![endif]-->
+<!--[if IE 7]>			<html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js ie8"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html class="no-js"> <!--<![endif]-->
+	<head lang="en">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>Control Panel | Importer | Solspace Addon Documentation</title>
+		<meta name="description" content="" />
+		<meta name="copyright" content="(c) 2010 Copyright content: Copyright design: Solspace, Inc."/>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="assets/css/normalize.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="assets/fancybox/jquery.fancybox-1.3.4.css" />
+		<link href="assets/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+		<link href="assets/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+		<script src="assets/js/modernizr.min.js"></script>
+	</head>
+	<body>
+		<!--[if lt IE 8]>
+			<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+		<![endif]-->
+
+		<header>
+			<div class="header-inner">
+				<div class="logo">
+					<img src="assets/images/logo.png" />
+				</div>
+
+				<div class="bread_crumbs">
+					<ul class="crumbs">
+						<li class="first"><a href="index.html">Importer</a></li>
+						<li>Control Panel</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<div class="content-wrapper">
+			<nav class="toc">
+				<ul>
+<li><a href="https://solspace.com/expressionengine/importer/">More Info | Purchase</a></li>
+<li><a href="change_log.html">Change Log</a></li>
+<li><a href="install_update.html">Install / Update</a></li>
+<li class="current"><a href="control_panel.html">Control Panel</a></li>
+<li><a href="data_types.html">Data Types</a></li>
+<li><a href="content_types.html">Content Types</a></li>
+<li><a href="data_sources.html">Data Sources</a></li>
+<li><a href="file_sizes_max_imports.html">File Sizes &amp; Maximum Imports</a></li>
+<li><a href="cron_importing.html">Cron Importing</a></li>
+<li><a href="third_party_support.html">Third Party Add-on Support</a></li>
+<li><h3>Requirements</h3><div class="requirements">
+
+<ul>
+<li>EE 2.10.x</li>
+<li>PHP 5.2+</li>
+<li>MySQL 5+</li>
+<li>All modern browsers or IE 10+</li>
+</ul></div></li>
+</ul>
+			</nav>
+
+			<article class="docs">
+				<p>The Importer module control panel allows you to create Import Profiles that define the source of your data, how it is parsed, and how it is imported into ExpressionEngine.  Once a profile is created, you can perform the import manually in the CP or set up a cron to process it on a regular basis. Whenever an import is performed, it is logged and you can view the details of the import within the <a href="#import_log">Import Log tab</a> of the Importer control panel.</p>
+
+<ul>
+<li><a href="#homepage">Homepage</a></li>
+<li><a href="#creating_import_profiles">Creating Import Profiles</a></li>
+<li><a href="#import_log">Import Log</a></li>
+<li><a href="#documentation">Documentation</a></li>
+</ul>
+
+<p><a name="homepage"></a></p>
+
+<h2>Homepage</h2>
+
+<p>This tab displays a list of all available Import Profiles for the site. You can edit the profile by clicking on it's name. To run the import, click the Run link. The links in the Cron URLs column are for use with creating crons to automate imports. For more information on importing using crons, please visit the <a href="cron_importing.html">Cron Importing</a> documentation.</p>
+
+<p><a href="images/importer_cp_homepage.png"><img src="images/importer_cp_homepage.png" alt="click to enlarge" /></a></p>
+
+<p><a name="creating_import_profiles"></a></p>
+
+<h2>Creating Import Profiles</h2>
+
+<p>To create a new import profile, visit the <em>Homepage</em> tab, under the <em>Create New Import Profile</em> heading you can select the <strong>type</strong> of the data being imported and then you will be able to select the type of content you can import into with that data type.  For example, you can select <em>JSON</em> and import that data into <em>Channel Entries</em>.  Click the <em>Create New Import Profile</em> button and Importer will walk you through a multi-step wizard to create the import profile with all required settings. For more information on data types and content types, please visit the <a href="data_types.html">Data Types</a> and <a href="content_types.html">Content Types</a> documentation.</p>
+
+<p><a href="images/importer_cp_create_profile_1.jpg"><img src="images/importer_cp_create_profile_1_t.jpg" alt="click to enlarge" /></a>
+<a href="images/importer_cp_create_profile_2.jpg"><img src="images/importer_cp_create_profile_2_t.jpg" alt="click to enlarge" /></a>
+<a href="images/importer_cp_create_profile_3a.jpg"><img src="images/importer_cp_create_profile_3a_t.jpg" alt="click to enlarge" /></a>
+<a href="images/importer_cp_create_profile_3b.jpg"><img src="images/importer_cp_create_profile_3b_t.jpg" alt="click to enlarge" /></a></p>
+
+<p><a name="import_log"></a></p>
+
+<h2>Import Log</h2>
+
+<p>This tab displays a list of imports that have been done in the past. You can click on the <strong>Details</strong> link for each line to see more details about each import.</p>
+
+<p><a href="images/importer_cp_import_log.jpg"><img src="images/importer_cp_import_log_t.jpg" alt="click to enlarge" /></a>
+<a href="images/importer_cp_import_log_details.jpg"><img src="images/importer_cp_import_log_details_t.jpg" alt="click to enlarge" /></a></p>
+
+<p><a name="documentation"></a></p>
+
+<h2>Documentation</h2>
+
+<p>All documentation is available on the Solspace site. This tab will take you directly to the Solspace site documentation area.</p>
+			</article>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+		<script src="assets/syntaxhighlighter/scripts/shCore.js"></script>
+		<script src="assets/syntaxhighlighter/scripts/shAutoloader.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>

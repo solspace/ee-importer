@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>		<html class="no-js ie6"> <![endif]-->
+<!--[if IE 7]>			<html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js ie8"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html class="no-js"> <!--<![endif]-->
+	<head lang="en">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>Change Log | Importer | Solspace Addon Documentation</title>
+		<meta name="description" content="" />
+		<meta name="copyright" content="(c) 2010 Copyright content: Copyright design: Solspace, Inc."/>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="assets/css/normalize.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="assets/fancybox/jquery.fancybox-1.3.4.css" />
+		<link href="assets/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+		<link href="assets/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+		<script src="assets/js/modernizr.min.js"></script>
+	</head>
+	<body>
+		<!--[if lt IE 8]>
+			<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+		<![endif]-->
+
+		<header>
+			<div class="header-inner">
+				<div class="logo">
+					<img src="assets/images/logo.png" />
+				</div>
+
+				<div class="bread_crumbs">
+					<ul class="crumbs">
+						<li class="first"><a href="index.html">Importer</a></li>
+						<li>Change Log</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<div class="content-wrapper">
+			<nav class="toc">
+				<ul>
+<li><a href="https://solspace.com/expressionengine/importer/">More Info | Purchase</a></li>
+<li class="current"><a href="change_log.html">Change Log</a></li>
+<li><a href="install_update.html">Install / Update</a></li>
+<li><a href="control_panel.html">Control Panel</a></li>
+<li><a href="data_types.html">Data Types</a></li>
+<li><a href="content_types.html">Content Types</a></li>
+<li><a href="data_sources.html">Data Sources</a></li>
+<li><a href="file_sizes_max_imports.html">File Sizes &amp; Maximum Imports</a></li>
+<li><a href="cron_importing.html">Cron Importing</a></li>
+<li><a href="third_party_support.html">Third Party Add-on Support</a></li>
+<li><h3>Requirements</h3><div class="requirements">
+
+<ul>
+<li>EE 2.10.x</li>
+<li>PHP 5.2+</li>
+<li>MySQL 5+</li>
+<li>All modern browsers or IE 10+</li>
+</ul></div></li>
+</ul>
+			</nav>
+
+			<article class="docs">
+				<ul>
+<li><a href="#v2.2.6">Version 2.2.6</a></li>
+<li><a href="#v2.2.5">Version 2.2.5</a></li>
+<li><a href="#v2.2.4">Version 2.2.4</a></li>
+<li><a href="#v2.2.3">Version 2.2.3</a></li>
+<li><a href="#v2.2.2">Version 2.2.2</a></li>
+<li><a href="#v2.2.1">Version 2.2.1</a></li>
+<li><a href="#v2.2.0">Version 2.2.0</a></li>
+<li><a href="#v2.1.0">Version 2.1.0</a></li>
+<li><a href="#v2.0.3">Version 2.0.3</a></li>
+<li><a href="#v2.0.2">Version 2.0.2</a></li>
+<li><a href="#v2.0.1">Version 2.0.1</a></li>
+<li><a href="#v2.0.0">Version 2.0.0</a></li>
+</ul>
+
+<p><a name="v2.2.6"></a></p>
+
+<h2>Version 2.2.6 (January 6, 2016)</h2>
+
+<ul>
+<li>Added support for Pixel &amp; Tonic Field Pack Multi Select field type.</li>
+<li>Fixed a bug where remote file importing via FTP (not sFTP) wasn't working.</li>
+<li>Fixed a bug where member importing would report as successful, despite not being the case when some custom fields were set as required.</li>
+</ul>
+
+<p><a name="v2.2.5"></a></p>
+
+<h2>Version 2.2.5 (August 1, 2014)</h2>
+
+<ul>
+<li>Added a loading image to the Settings form to indicate when channel information is being loaded in the background.</li>
+<li>Updated size allowance from ~65k to ~16,777k for Import profiles where the source is an uploaded file, fixing errors pertaining to large files being auto-truncated when using MySQL in non-strict modes.</li>
+<li>Fixed a bug where XML imports with namespaced child elements could throw errors in some situations.</li>
+<li>Fixed a bug where Control Panel error messages were incorrectly calling CP headers and footers and could result in PHP errors instead of a clear error message.</li>
+<li>Fixed a bug where third party addons using the 'custom_field_data' hook would error when used in conjunction with Importer during imports.</li>
+</ul>
+
+<p><a name="v2.2.4"></a></p>
+
+<h2>Version 2.2.4 (April 17, 2014)</h2>
+
+<ul>
+<li>Updated for compatibility with ExpressionEngine 2.8.</li>
+<li>Fixed a bug where the "Keep Old Categories and Add the New" option for the "Duplicate Entry Action for Categories" setting would remove old categories.</li>
+</ul>
+
+<p><a name="v2.2.3"></a></p>
+
+<h2>Version 2.2.3 (September 25, 2013)</h2>
+
+<ul>
+<li>Updated for compatibility with ExpressionEngine 2.7.</li>
+<li>Fixed a bug in EE 2.6+ where 'edit_dates' on entries were being inserted improperly.</li>
+<li>Fixed a bug in EE 2.6+ where mysql errors could occur on member import.</li>
+<li>Fixed a bug where XML imports would fail when a title was missing, even when a default was set.</li>
+<li>Fixed a bug where item counts in batch imports were incorrect.</li>
+<li>Fixed a bug where native EE date fields would accept very few if any types of inputs (more accurate acceptance of human readable dates is achieveable using EE 2.6+ due to changes in how EE itself handles dates).</li>
+<li>Fixed a bug where default Solspace Tag inputs were not being parsed when the entry tag data was empty.</li>
+</ul>
+
+<p><a name="v2.2.2"></a></p>
+
+<h2>Version 2.2.2 (May 21, 2013)</h2>
+
+<ul>
+<li>Fixed a bug where batch importing could cause potential PHP errors in EE 2.6+ and fail to run, resulting an error alert.</li>
+</ul>
+
+<p><a name="v2.2.1"></a></p>
+
+<h2>Version 2.2.1 (May 3, 2013)</h2>
+
+<ul>
+<li>Updated for compatibility with ExpressionEngine 2.6.</li>
+<li>Fixed a javascript error occuring on the Import Log control panel page.</li>
+<li>Fixed potential PHP errors when importing into channels with Solspace Tag fields.</li>
+</ul>
+
+<p><a name="v2.2.0"></a></p>
+
+<h2>Version 2.2.0 (March 20, 2013)</h2>
+
+<ul>
+<li>Added multiple EE Relationships custom field to Playa field importing.</li>
+<li>Added multiple Playa custom fields to a single Playa field importing.</li>
+<li>Added CSV, JSON, XML to EE Members importing.</li>
+<li>Added ability to clear out Cron Batches via Right Menu button at top of Importer CP homepage.</li>
+<li>Added URL Title field to Channel Entries import.</li>
+<li>Added support for Namespaced elements in XML Files.</li>
+<li>Updated Importer to allow JSON elements with values of NULL, TRUE/FALSE, and Numeric.</li>
+<li>Updated Importer to now have JSON elements with a boolean value being inserted into a radio, checkbox, or select field match to y/yes (TRUE) or n/no (FALSE).</li>
+<li>Updated for a few performance tweaks.</li>
+<li>Updates are now automatic and no longer require a manual update screen.</li>
+<li>Fixed a bug where Default Value for the Entry Title (Channel Entries) would not work if Element specified but did not exist. </li>
+<li>Fixed a bug where UNIX timestamps below 0 were not being imported correctly.</li>
+<li>Fixed a bug where "Duplicate Entry Action for Categories" in Channel Entries setting was not sticking in Settings Form.</li>
+<li>Fixed a bug where Default Values for Custom Fields were not being saved in Firefox.</li>
+<li>Fixed a bug where when updating Channel Entries, versioning was disabled incorrectly.</li>
+<li>Fixed a bug where the Channel Entries API cleared out Assets data on update.</li>
+<li>Removed distinct Solspace Tags parsing for Channel Entries, replaced with Solspace Tags custom field parsing ability.</li>
+</ul>
+
+<p><a name="v2.1.0"></a></p>
+
+<h2>Version 2.1.0 (May 24, 2012)</h2>
+
+<ul>
+<li>Added support for P&amp;T Matrix (2.3+), P&amp;T Playa (4.2+), and EE Date field types.</li>
+<li>Fixed a bug where no data would be imported if the first row of titles in CSV imports contained a slash character ("/").</li>
+</ul>
+
+<p><a name="v2.0.3"></a></p>
+
+<h2>Version 2.0.3 (April 20, 2012)</h2>
+
+<ul>
+<li>Added an automatic url_title creator that takes into account the Channel's URL Title Prefix.</li>
+<li>Improved the processing speed of new entries.</li>
+<li>Fixed a bug where new installs did not have a critical MySQL field required for batch processing added.</li>
+<li>Fixed a bug where the duplicate entry check would not work on Title fields with data longer than 100 characters.</li>
+<li>Fixed a bug where one of Importer's extension hooks (cp_js_end) was intefering with other third party's hooks.</li>
+<li>Fixed a bug where Updated Entries would lose existing custom field data, if that field was not updated in the data source.</li>
+</ul>
+
+<p><a name="v2.0.2"></a></p>
+
+<h2>Version 2.0.2 (February 15, 2012)</h2>
+
+<ul>
+<li>Added the ability to import into Expiration Date.</li>
+<li>Modified the CSV parsing to be compatible with versions below PHP 5.3.</li>
+<li>Modified the AJAX code to always go to the CP to work better with throttling, MSM, and subdomains.</li>
+<li>Fixed a bug where unprocessed batches were not being removed from the database.</li>
+</ul>
+
+<p><a name="v2.0.1"></a></p>
+
+<h2>Version 2.0.1 (January 5, 2012)</h2>
+
+<ul>
+<li>Added the ability to specify a primary element for JSON imports, allowing one to import more complicated data.</li>
+<li>Modified the entry date parsing for Channel Entries to accept Unix timestamp.</li>
+<li>Fixed a bug where Strict XML was not correctly importing CDATA data.</li>
+<li>Fixed a bug where Loose XML was limiting the number of possible XML elements in data array to 20.</li>
+<li>Fixed a bug where the Category Field Data row was not put into the DB when creating new categories.</li>
+<li>Fixed a bug where Batch Importing was not working when ExpressionEngine Throttling was enabled.</li>
+</ul>
+
+<p><a name="v2.0.0"></a></p>
+
+<h2>Version 2.0.0 (December 22, 2011)</h2>
+
+<ul>
+<li>Completely rebuilt Importer, using the Solspace Add-on Builder Framework (add-on is EE2 compatible only).</li>
+</ul>
+			</article>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+		<script src="assets/syntaxhighlighter/scripts/shCore.js"></script>
+		<script src="assets/syntaxhighlighter/scripts/shAutoloader.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>

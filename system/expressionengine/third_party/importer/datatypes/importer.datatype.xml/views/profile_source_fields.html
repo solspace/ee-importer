@@ -1,0 +1,38 @@
+<table class="mainTable" border="0" cellspacing="0" cellpadding="0">
+	<thead>
+		<tr>
+			<th colspan="2">
+				<?=lang('additional_data_type_fields')?>
+			</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+
+		<!-- XML Data Type: Parent XML Element -->
+		<tr class="even" id="primary_xml_element">
+			<td style="width:35%;">
+				<em class='required'>* </em><label for="primary_xml_element"><?=lang('primary_xml_element')?></label>
+				<div class="subtext"><?=lang('primary_xml_element_subtext')?></div>
+			</td>
+			<td>
+				<input type="text" name="primary_xml_element" style="width:70%;" value="<?=$importer_primary_xml_element?>" />
+			</td>
+		</tr>
+		
+		<!-- XML Data Type: XML Strictness -->
+		<tr class="even" id="xml_parsing_strictness">
+			<td style="width:35%;">
+				<label for="xml_parsing_strictness"><?=lang('xml_parsing_strictness')?></label>
+				<div class="subtext"><?=lang('xml_parsing_strictness_subtext')?></div>
+			</td>
+			<td>
+				<select name="xml_parsing_strictness">
+					<option value="strict" <?=(($importer_xml_parsing_strictness == 'strict') ? 'selected="selected"': '')?>><?=lang('xml_parsing_strictness_strict')?></option>
+					<option value="loose" <?=(($importer_xml_parsing_strictness == 'loose') ? 'selected="selected"': '')?>><?=lang('xml_parsing_strictness_loose')?></option>
+				</select>
+			</td>
+		</tr>
+	</tbody>
+</table>
+		

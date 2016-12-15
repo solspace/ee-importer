@@ -1,0 +1,376 @@
+<form action="<?=$this->output($base_uri.'&method=save_settings');?>" method="post" id="module_importer_profile_settings">
+	<input type="hidden" name="<?=$csrf_hidden_name?>"	value="<?=$CSRF_TOKEN?>" />
+	<input type="hidden" name="profile_id" value="<?=$selected_profile_id?>" />
+
+<!-- MEMBER - IMPORTANT FIELDS: Member Group, Username, Email, Screen Name -->
+<!-- If inserting, all of these need to be set -->
+<!-- If updating, at least one of these needs to be set -->
+
+<table class="mainTable" border="0" cellspacing="0" cellpadding="0">
+	<thead>
+		<tr>
+			<th><?=lang('matching_fields')?></th>
+			<th><?=lang('element')?></th>
+			<th><?=lang('expressionengine_field')?></th>
+	</thead>
+	<tbody>
+		<tr class="odd">
+			<td style="width:30%;">
+				<em class='required'>* </em>
+				<label for="unique_field"><?=lang('unique_field')?></label>
+				<div class="subtext"><?=lang('field_duplicate_note')?></div>
+			</td>
+
+			<td style="width: 40%;">
+				<select name="unique_field_element">
+					<option value="">&nbsp;</option>
+				<?php foreach ($element_options as $element => $example) :?>
+					<?php $selected = (
+						$element == $selected_unique_field_element
+					) ? 'selected="selected"' : ''; ?>
+					<option value="<?=$element?>" <?=$selected?>>
+						<?=$element?> - <?=lang('content_type_for_example')?> <?=$example?>
+					</option>
+				<?php endforeach; ?>
+
+				</select>
+			</td>
+
+			<td>
+				<select name="unique_field">
+					<option value=""></option>
+				<?php foreach($unique_fields as $field_id => $field_data) :?>
+					<?php $selected = (
+						$field_id == $selected_unique_field
+					) ? 'selected="selected"' : '';?>
+					<option value="<?=$field_id?>" <?=$selected?>>
+						<?=$field_data['field_label']?>
+					</option>
+				<?php endforeach; ?>
+				</select>
+			</td>
+		</tr>
+
+		<tr class="even">
+			<td style="width:30%;">
+				<label for="unique_field_two"><?=lang('unique_field_part_deux')?></label>
+				<div class="subtext"><?=lang('source_data_note')?></div>
+			</td>
+
+			<td style="width: 40%;">
+				<select name="unique_field_two_element">
+					<option value="">&nbsp;</option>
+				<?php foreach ($element_options as $element => $example) :?>
+					<?php $selected = (
+						$element == $selected_unique_field_two_element
+					) ? 'selected="selected"' : ''; ?>
+					<option value="<?=$element?>" <?=$selected?>>
+						<?=$element?> - <?=lang('content_type_for_example')?> <?=$example?>
+					</option>
+				<?php endforeach; ?>
+				</select>
+			</td>
+
+			<td>
+				<select name="unique_field_two">
+					<option value=""></option>
+					<?php foreach($unique_fields as $field_id => $field_data) :?>
+						<?php $selected = (
+							$field_id == $selected_unique_field_two
+						) ? 'selected="selected"' : '';?>
+						<option value="<?=$field_id?>" <?=$selected?>>
+							<?=$field_data['field_label']?>
+						</option>
+					<?php endforeach; ?>
+				</select>
+			</td>
+		</tr>
+
+		<tr class="odd">
+			<td style="width:30%;">
+				<em class='required'>* </em>
+				<label for="duplicate_member_action">
+					<?=lang('duplicate_member_action')?>
+				</label>
+			</td>
+			<td colspan="2">
+				<select name="duplicate_member_action">
+				<?php
+					foreach(array(
+						'do_nothing',
+						'update_member',
+						'delete_member',
+						'delete_member_insert_new') as $option) :
+
+					$selected = ($option == $selected_duplicate_member_action) ?
+						'selected="selected"' :
+						'';
+				?>
+					<option value="<?=$option?>" <?=$selected?>>
+						<?=lang('importer_'.$option)?>
+					</option>
+
+				<?php endforeach; ?>
+
+				</select>
+			</td>
+		</tr>
+
+
+	</tbody>
+</table>
+<!-- END MEMBER - IMPORTANT FIELDS -->
+
+
+
+<!-- MEMBER - REQUIRED FIELDS: Member Group, Username, Email, Screen Name -->
+<!-- If inserting, all of these need to be set -->
+<!-- If updating, at least one of these needs to be set -->
+
+<table class="mainTable" border="0" cellspacing="0" cellpadding="0">
+	<thead>
+		<tr>
+			<th><?=lang('required_fields')?></th>
+			<th><?=lang('element')?></th>
+			<th><?=lang('default_value')?></th>
+	</thead>
+
+	<tbody>
+		<tr class="highlightRow">
+			<td colspan="3" class="notice">
+				<?=lang('member_import_required_field_note')?>
+			</td>
+		</tr>
+	</tbody>
+
+	<tbody>
+		<?php foreach($required_fields as $field_id => $field_data) : ?>
+			<tr class="<?=$this->cycle('odd', 'even')?>">
+				<td style="width:30%;">
+					<em class='required'>* </em>
+					<label for="<?=$field_id?>_element">
+						<?=$field_data['label']?>
+					</label>
+				<?php if ( ! empty($field_data['field_subtext'])) :?>
+					<div class="subtext">
+						<?=$field_data['field_subtext']?>
+					</div>
+				<?php endif;?>
+				</td>
+				<td style="width: 40%;">
+					<select name="<?=$field_id?>_element" <?=(
+						$field_data['disabled'] == TRUE ? 'disabled="disabled"' : ''
+					)?>>
+						<option value="">&nbsp;</option>
+					<?php foreach ($element_options as $element => $example) :?>
+						<?php $selected = (
+							$element == ${'selected_'.$field_id.'_element'}
+						) ? 'selected="selected"' : ''; ?>
+						<option value="<?=$element?>" <?=$selected?>>
+							<?=$element?> - <?=lang('content_type_for_example')?> <?=$example?>
+						</option>
+					<?php endforeach; ?>
+					</select>
+				</td>
+				<td>
+				<?php if ( ! empty($field_data['options'])) : ?>
+					<select name="<?=$field_id?>_default">
+					<?php foreach($field_data['options'] AS $o_key => $o_value) : ?>
+						<?php $selected = (
+							$o_key == ${'selected_' . $field_id.'_default'}
+						) ? 'selected="selected"' : ''; ?>
+						<option value="<?=$o_key?>" <?=$selected?>>
+							<?=$o_value?>
+						</option>
+					<?php endforeach; ?>
+					</select>
+				<?php endif; ?>
+				</td>
+			</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+<!-- END MEMBER - REQUIRED FIELDS -->
+
+
+
+
+
+<!-- MEMBER - EE FIELDS -->
+<table class="mainTable" border="0" cellspacing="0" cellpadding="0">
+	<thead>
+		<tr>
+			<th style="width:30%;"><?=lang('additional_member_fields')?></th>
+			<th><?=lang('element')?></th>
+			<th><?=lang('default_value')?></th>
+		</tr>
+	</thead>
+
+
+	<tbody id="visible-fields">
+		<?php foreach($all_fields as $field_id => $field_data) :?>
+
+			<?php if (in_array($field_id, array_keys($required_fields))) continue; ?>
+			<?php if ( empty(${'selected_'.$field_id.'_element'})) continue; ?>
+
+			<?php $this->view(
+				'field_row.html',
+				array_merge(
+					$this->cached_vars,
+					array('field_id'=> $field_id, 'field_data' => $field_data)
+				),
+				FALSE,
+				PATH_THIRD .
+				'importer/content_types/importer.content_type.members/views/field_row.html'
+			); ?>
+
+		<?php endforeach; ?>
+
+		<tr id="no-fields-here" style="display:none;">
+			<td colspan="3">
+				<?=lang('add_additional_fields_below')?>
+			</td>
+		</tr>
+
+	</tbody>
+
+	<tbody id="invisible-fields" style="display:none;">
+		<?php foreach($all_fields as $field_id => $field_data) :?>
+			<?php if (in_array($field_id, array_keys($required_fields))) continue; ?>
+			<?php if ( ! empty(${'selected_'.$field_id.'_element'})) continue; ?>
+
+			<?php $this->view(
+				'field_row.html',
+				array_merge(
+					$this->cached_vars,
+					array('field_id'=> $field_id, 'field_data' => $field_data)
+				),
+				FALSE,
+				PATH_THIRD .
+				'importer/content_types/importer.content_type.members/views/field_row.html'
+			); ?>
+
+		<?php endforeach; ?>
+	</tbody>
+</table>
+<!-- END: MEMBER - EE FIELDS -->
+
+<p>
+	<select id="choose-additional-fields">
+		<?php foreach($all_fields as $field_id => $field_data) :?>
+			<?php if (in_array($field_id, array_keys($required_fields))) continue; ?>
+			<?php if ( ! empty(${'selected_'.$field_id.'_element'})) continue; ?>
+			<option value="<?=$field_id?>"><?=$field_data['field_label']?></option>
+		<?php endforeach; ?>
+	</select>
+
+	<button id="add-additional-fields" class="modal_close_save submit close" ><?=lang('add_field')?></button>
+</p>
+
+
+
+
+<!-- NOTIFICATIONS -->
+
+<table class="mainTable" border="0" cellspacing="0" cellpadding="0">
+	<thead>
+		<tr>
+			<th colspan="2"><?=lang('importer_notifications')?></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="odd">
+			<td style="width:30%; vertical-align:top">
+				<label for="notification_emails"><?=lang('importer_notification_emails')?></label>
+				<div class="subtext"><?=lang('importer_notification_emails_subtext')?></div>
+			</td>
+
+			<td style="vertical-align:top">
+			<textarea
+				   class="textarea" cols="90"
+				   rows="2"   		name="notification_emails"
+				   style="width:75%"><?=$selected_notification_emails?></textarea>
+			</td>
+		</tr>
+
+		<tr class="even">
+			<td style="width:30%;vertical-align:top">
+				<label for="notification_cc"><?=lang('importer_notification_cc')?></label>
+				<div class="subtext"><?=lang('importer_notification_cc_subtext')?></div>
+			</td style="vertical-align:top">
+
+			<td>
+			<textarea
+				   class="textarea" cols="90"
+				   rows="2"   		name="notification_cc"
+				   style="width:75%"><?=$selected_notification_cc?></textarea>
+			</td>
+		</tr>
+
+		<tr class="odd">
+			<td style="width:30%;">
+				<label for="notification_subject"><?=lang('importer_notification_subject')?></label>
+			</td>
+
+			<td>
+				<input type="text" name="notification_subject" value="<?=$caller->output($selected_notification_subject)?>"  />
+			</td>
+		</tr>
+
+		<tr class="even">
+			<td style="vertical-align:top">
+				<label for="notification_message"><?=lang('importer_notification_message')?></label>
+				<div class="subtext"><?=lang('importer_notification_message_subtext')?></div>
+			</td>
+
+			<td sstyle="width:30%; vertical-align:top">
+			<textarea
+				   class="textarea" cols="90"
+				   rows="6"   		name="notification_message"
+				   style="width:75%"><?=$selected_notification_message?></textarea>
+			</td>
+		</tr>
+
+		<tr class="odd">
+			<td style="width:30%;">
+				<label for="notification_rules"><?=lang('importer_notification_rules')?></label>
+			</td>
+
+			<td>
+				<select name="notification_rules">
+					<?php
+						foreach(array('disabled','start','end','start_end') as $option) :
+							$selected = ($option == $selected_notification_rules) ? 'selected="selected"' : '';
+					?>
+						<option value="<?=$option?>" <?=$selected?>><?=lang('importer_notification_rules_'.$option)?></option>
+
+					<?php endforeach; ?>
+
+				</select>
+			</td>
+		</tr>
+
+
+	</tbody>
+</table>
+
+<!-- END: NOTIFICATION -->
+
+<input type="submit" name="submit_import" value="<?=lang('save_and_do_import')?>" class="submit" />
+&nbsp;
+<input type="submit" name="submit_finish" value="<?=lang('save_and_finish')?>" class="submit" />
+
+</form>
+
+
+<!-- Solspace Modal: Used for custom field defaults -->
+<div id="solspace_modal_overlay" class="solspace_modal_overlay">
+	<h2>Title</h2>
+
+	<p></p>
+
+	<button class="modal_close_save submit close" ><?=lang('importer_modal_save')?></button>
+
+	<div class="subtext" style="margin-top:8px;">* <?=lang('modal_press_esc_to_close_and_discard')?></div>
+
+</div>

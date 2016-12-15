@@ -1,0 +1,49 @@
+<td style="width: 30%; vertical-align:top;">
+<?php if ($field_data['field_required'] == 'y') :?>
+	<em class='required'>*</em>
+<?php endif; ?>
+	<label for="field_id_<?=$field_id?>_element"><?=$field_data['field_label']?></label>
+</td>
+
+<?php if (isset($error)) : ?>
+	<td colspan="2" style="width: 70%; vertical-align:middle;">
+		<?=$error?>
+	<td>
+
+<?php else: ?>
+
+<td style="width: 40%;">
+	<select name="field_id_<?=$field_id?>_element">
+		<option value=""></option>
+		<?php foreach ($element_options as $element => $example) :?>
+			<option value="<?=$element?>" <?=(($element == $selected['field_id_'.$field_id.'_element']) ? 'selected="selected"' : '')?>><?=$element?> - <?=lang('content_type_for_example')?> <?=$example?></option>
+		<?php endforeach; ?>
+	</select>
+
+	<div style="padding-top: 15px;">
+
+	<strong><?=lang('importer_solspace_tags_delimiter')?>: </strong>
+
+		<select name="field_id_<?=$field_id?>_delimiter">
+			<?php foreach($delimiter_options as $separator): ?>
+				<option value="<?=$separator?>"
+					<?=(($separator == ${'field_id_'.$field_id.'_delimiter'}) ?
+					"selected='selected'" : "");?>><?=$separator?>
+				</option>
+			<?php endforeach;?>
+		</select>
+
+	</div>
+
+</td>
+
+<td>
+	<a href="" rel="field_id_<?=$field_id;?>"><?=lang('importer_custom_field_default_show')?></a>
+
+	<div id="custom_field_default_div_field_id_<?=$field_id;?>" style="display:none;">
+		<?php $name = 'default_field_id_'.$field_id; ?>
+		<textarea name="default_field_id_<?=$field_id;?>"><?=$selected[$name];?></textarea>
+	</div>
+</td>
+
+<?php endif; ?>

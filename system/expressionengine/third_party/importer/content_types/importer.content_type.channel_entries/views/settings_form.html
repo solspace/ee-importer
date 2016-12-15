@@ -1,0 +1,94 @@
+
+<script type="text/javascript">
+	jQuery(function($)
+	{
+		$('#channel_id').change(function(e)
+		{
+			if ($('#channel_id').val() == '')
+			{
+				$('#settings_form_channel_entries').html('').hide();
+			}
+			else
+			{
+				$('#channel_loading_img').show();
+
+				$.ajax({
+					url 		: '<?=$this->base?>&method=ajax&content_type=channel_entries&call=settings_form_ajax',
+					dataType	: 'HTML',
+					type 		: 'GET',
+					data 		: {
+						channel_id : $('#channel_id').val(),
+						profile_id: "<?=$importer_profile_id?>",
+						<?=$csrf_hidden_name?>: '<?=$CSRF_TOKEN?>'
+					},
+					error		: function (jqXHR, textStatus, errorThrown)
+					{
+						$('#channel_loading_img').hide();
+						//console.log(jqXHR);
+						alert('There was error during the processing: '+errorThrown);
+
+						$('#settings_form_channel_entries').html('').hide();
+					},
+					success		: function (data, textStatus, jqXHR)
+					{
+						$('#channel_loading_img').hide();
+						$('#settings_form_channel_entries').html(data).show();
+					}
+				});
+			}
+		});
+
+		$('#channel_id').trigger('change');
+	});
+</script>
+
+<table class="mainTable" border="0" cellspacing="0" cellpadding="0">
+	<thead>
+		<tr>
+			<th colspan="2">
+				<?=lang('importer_channel')?>
+			</th>
+		</tr>
+	</thead>
+
+	<tbody>
+	<tr class="even">
+		<td style="width:35%; vertical-align:top;">
+			<label for="channel_id"><?=lang('importer_channel')?></label>
+			<div class="subtext"><?=lang('importer_channel_subtext')?></div>
+		</td>
+		<td>
+			<select class="select" name="channel_id" id="channel_id">
+
+				<option value=""><?=$this->output(lang('choose_channel'))?></option>
+
+				<?php foreach($caller->data->get_sites() as $site_id => $site_label) : ?>
+					<optgroup label='<?=$caller->output($site_label)?>'>
+
+					<?php
+						foreach($channels[$site_id] as $channel_id => $channel_title) :
+							$selected = ($channel_id == $importer_channel_id) ? 'selected="selected"' : '';
+					?>
+
+						<option value="<?=$channel_id?>" <?=$selected?>><?=$this->output($channel_title)?></option>
+
+					<?php endforeach; ?>
+					</optgroup>
+				<?php endforeach; ?>
+			</select>
+			&nbsp;
+			<img style="display:none; margin-bottom:-4px;" id="channel_loading_img" src="<?=$addon_theme_url?>images/indicator.gif" />
+		</td>
+	</tr>
+	</tbody>
+</table>
+
+
+<!--- This is where the Channel Form of Settings Will Go -->
+
+<div id="settings_form_channel_entries">
+
+
+
+</div>
+

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>		<html class="no-js ie6"> <![endif]-->
+<!--[if IE 7]>			<html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js ie8"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html class="no-js"> <!--<![endif]-->
+	<head lang="en">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>Data Types | Importer | Solspace Addon Documentation</title>
+		<meta name="description" content="" />
+		<meta name="copyright" content="(c) 2010 Copyright content: Copyright design: Solspace, Inc."/>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="assets/css/normalize.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="assets/fancybox/jquery.fancybox-1.3.4.css" />
+		<link href="assets/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+		<link href="assets/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+		<script src="assets/js/modernizr.min.js"></script>
+	</head>
+	<body>
+		<!--[if lt IE 8]>
+			<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+		<![endif]-->
+
+		<header>
+			<div class="header-inner">
+				<div class="logo">
+					<img src="assets/images/logo.png" />
+				</div>
+
+				<div class="bread_crumbs">
+					<ul class="crumbs">
+						<li class="first"><a href="index.html">Importer</a></li>
+						<li>Data Types</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<div class="content-wrapper">
+			<nav class="toc">
+				<ul>
+<li><a href="https://solspace.com/expressionengine/importer/">More Info | Purchase</a></li>
+<li><a href="change_log.html">Change Log</a></li>
+<li><a href="install_update.html">Install / Update</a></li>
+<li><a href="control_panel.html">Control Panel</a></li>
+<li class="current"><a href="data_types.html">Data Types</a></li>
+<li><a href="content_types.html">Content Types</a></li>
+<li><a href="data_sources.html">Data Sources</a></li>
+<li><a href="file_sizes_max_imports.html">File Sizes &amp; Maximum Imports</a></li>
+<li><a href="cron_importing.html">Cron Importing</a></li>
+<li><a href="third_party_support.html">Third Party Add-on Support</a></li>
+<li><h3>Requirements</h3><div class="requirements">
+
+<ul>
+<li>EE 2.10.x</li>
+<li>PHP 5.2+</li>
+<li>MySQL 5+</li>
+<li>All modern browsers or IE 10+</li>
+</ul></div></li>
+</ul>
+			</nav>
+
+			<article class="docs">
+				<p>Importer lets you import multiple kinds of data into various types of ExpressionEngine content:</p>
+
+<ul>
+<li><a href="#csv">CSV</a> (imports into Channel Entries or Members)</li>
+<li><a href="#json">JSON</a> (imports into Channel Entries or Members)</li>
+<li><a href="#xml">XML</a> (imports into Channel Entries or Members)</li>
+<li><a href="#ee_relationships">EE Relationship Fields</a> (imports into a Playa field)</li>
+<li><a href="#playa_fields">Playa Fields</a> (imports into a Playa field)</li>
+</ul>
+
+<p><a name="csv"></a></p>
+
+<h2>CSV</h2>
+
+<p><strong>Data Source:</strong> <a href="data_sources.html">File</a></p>
+
+<p><strong>Valid Content Types:</strong> <a href="content_types.html#channel_entries">Channel Entries</a> and <a href="content_types.html#members">Members</a></p>
+
+<p>You can import data from a
+<a href="http://en.wikipedia.org/wiki/Comma-separated_values" title="Wikipedia: CSV">CSV</a>
+(comma-seperated values) file with Importer. CSV files can be manually
+generated and edited with a text editor, and is also a popular option
+available for export from many applications. In the import profile, you
+can specify whether the values are separated by <em>comma</em>, <em>tab</em>, or
+<em>semicolon</em>. Be sure that each value is wrapped in an <strong>encloser</strong>
+character (such as quotes) so Importer doesn't misread some data. You
+can also specify whether or not the first row of values is column names
+and should be omitted from the import. It is highly suggested that the
+first row of data be column names to better faciliate importing.</p>
+
+<p><a href="importer_csv.jpg"><img src="images/importer_csv.jpg" alt="click to enlarge" /></a></p>
+
+<p>Below is sample formatting of what a CSV file should look like for importing into Channel Entries:</p>
+
+<pre class="brush: html;">"title","author","body","extended","categories","tags","status"
+"CSV Test Entry - Alpha","support@solspace.com","A regular ol body field","Duplicate Test - Extended","One,Two","cheese,rainbows","open"
+"CSV Test Entry - Beta","support@solspace.com","What do you mean I have a body?","Go go gadget field","Two,New Category","pies,cheese,peanuts","closed"
+</pre>
+
+<p>And for a Members import:</p>
+
+<pre class="brush: html;">"username","screen_name","first_name","email"
+"brettb","Brett Bretterson","Brett","brett@example.com"
+"robr","Robert Robertson","Robert","robert@example.com"
+</pre>
+
+<p><a name="json"></a></p>
+
+<h2>JSON</h2>
+
+<p><strong>Data Source:</strong> <a href="data_sources.html">File</a></p>
+
+<p><strong>Valid Content Types:</strong> <a href="content_types.html#channel_entries">Channel Entries</a> and <a href="content_types.html#members">Members</a></p>
+
+<p>You can import data from a
+<a href="http://en.wikipedia.org/wiki/JSON" title="Wikipedia: JSON">JSON</a> file with
+Importer. You can optionally specify the name of a primary JSON element
+to allow for importing of more complicated data. For example, your JSON
+file might contain a set of arrays, one of which is named <em>data</em> and
+contains the items you wish to import. You can otherwise leave this
+blank. To allow manual uploading of JSON files, <strong>JSON</strong> needs to be added
+to <em>config/mimes.php</em> file:</p>
+
+<pre class="brush: html;">'json'    =&gt;    array('application/json', 'text/javascript'),
+</pre>
+
+<p><a href="images/importer_json.jpg"><img src="images/importer_json.jpg" alt="click to enlarge" /></a></p>
+
+<p>Below is sample formatting of what a JSON file should look like for importing into Channel Entries:</p>
+
+<pre class="brush: html;">[
+    {
+        "title":"JSON Test Entry - Alpha",
+        "author":"support@solspace.com",
+        "body":"A regular ol body field",
+        "extended":"Duplicate Test - Extended",
+        "categories":
+            {
+                "category":["One","Two"]
+            },
+        "tags":"cheese,rainbows",
+        "status":"open"
+    },
+
+    {
+        "title":"JSON Test Entry - Beta",
+        "author":"support@solspace.com",
+        "body":"What do you mean I have a body?",
+        "extended":"Go go gadget arms!",
+        "categories":
+            {
+                "category":["Two","New Category"]
+            },
+        "tags":"pies,cheese,peanuts",
+        "status":"closed"
+    }
+]
+</pre>
+
+<p>And for a Members import:</p>
+
+<pre class="brush: html;">[
+    {
+        "username":"brettb",
+        "screen_name":"Brett Bretterson",
+        "first_name":"Brett",
+        "email":"brett@example.com"
+    },
+
+    {
+        "username":"robr",
+        "screen_name":"Robert Robertson",
+        "first_name":"Robert",
+        "email":"robert@example.com"
+    },
+]
+</pre>
+
+<p><a name="xml"></a></p>
+
+<h2>XML</h2>
+
+<p><strong>Data Source:</strong> <a href="data_sources.html">File</a></p>
+
+<p><strong>Valid Content Types:</strong> <a href="content_types.html#channel_entries">Channel Entries</a> and <a href="content_types.html#members">Members</a></p>
+
+<p>You can import data from a <a href="http://en.wikipedia.org/wiki/XML" title="Wikipedia: XML">XML</a> file with Importer. You'll need to specify the primary XML element that contains the records you intend to parse. For example, in Atom feeds, <em>entry</em>
+would be used. Some XML documents may not validate as <strong>Strict XML</strong>. By
+choosing <strong>Loose XML</strong>, we may be able to still parse these documents.
+However, it will take longer to import. Characters like <em>&lt;</em> and <em>&amp;</em> are
+illegal in XML elements. In the event your data contains these
+characters (or any HTML), you will need to make sure the characters are
+HTML entities (ex: <strong>&amp;lt;</strong> and <strong>&amp;amp;</strong>). An alternative option is wrapping your applicable values with
+<a href="http://en.wikipedia.org/wiki/CDATA" title="Wikipedia: CDATA">CDATA</a> tags.
+Importer will not attempt to parse any data within the CDATA section and
+leave it untouched.</p>
+
+<p><a href="images/importer_xml.jpg"><img src="images/importer_xml.jpg" alt="click to enlarge" /></a></p>
+
+<p>Below is sample formatting of what an XML file should look like for importing in Channel Entries:</p>
+
+<pre class="brush: html;">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+    &lt;entries&gt;
+        &lt;entry&gt;
+            &lt;title&gt;XML Test Entry - Alpha&lt;/title&gt;
+            &lt;author&gt;support@solspace.com&lt;/author&gt;
+            &lt;body&gt;A regular ol body field&lt;/body&gt;
+            &lt;extended&gt;Duplicate Test - Extended&lt;/extended&gt;
+            &lt;categories&gt;
+                &lt;category&gt;One&lt;/category&gt;
+                &lt;category&gt;Two&lt;/category&gt;
+            &lt;/categories&gt;
+            &lt;tags&gt;cheese,rainbows&lt;/tags&gt;
+            &lt;status&gt;open&lt;/status&gt;
+        &lt;/entry&gt;
+        &lt;entry&gt;
+            &lt;title&gt;XML Test Entry - Beta&lt;/title&gt;
+            &lt;author&gt;support@solspace.com&lt;/author&gt;
+            &lt;body&gt;What do you mean I have a body?&lt;/body&gt;
+            &lt;extended&gt;Go go gadget arms!&lt;/extended&gt;
+            &lt;categories&gt;
+                &lt;category&gt;Two&lt;/category&gt;
+                &lt;category&gt;New Category&lt;/category&gt;
+            &lt;/categories&gt;
+            &lt;tags&gt;pies,cheese,peanuts&lt;/tags&gt;
+            &lt;status&gt;closed&lt;/status&gt;
+        &lt;/entry&gt;
+    &lt;/entries&gt;
+</pre>
+
+<p>And for a Members import:</p>
+
+<pre class="brush: html;">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+    &lt;members&gt;
+        &lt;member&gt;
+            &lt;username&gt;brettb&lt;/username&gt;
+            &lt;screen_name&gt;Brett Bretterson&lt;/screen_name&gt;
+            &lt;first_name&gt;Brett&lt;/first_name&gt;
+            &lt;email&gt;brett@example.com&lt;/email&gt;
+            &lt;birthday month="12" year="1941" day="7"&gt;1941-12-07&lt;/birthday&gt;
+        &lt;/member&gt;
+        &lt;member&gt;
+            &lt;username&gt;robr&lt;/username&gt;
+            &lt;screen_name&gt;Robert Robertson&lt;/screen_name&gt;
+            &lt;first_name&gt;Robert&lt;/first_name&gt;
+            &lt;email&gt;robert@example.com&lt;/email&gt;
+            &lt;birthday month="02" year="1980" day="29"&gt;1980-02-29&lt;/birthday&gt;
+        &lt;/member&gt;
+    &lt;/members&gt;
+</pre>
+
+<!--
+
+<a name="gallery_entries"></a>
+Gallery Entries
+-----------------
+
+**Data Source:** EE 1.x Gallery module database tables
+
+**Valid Content Types:** [P&T Assets custom field](content_types.md#assets)
+
+You can import data from the *ExpressionEngine 1.x Gallery* module into a P&T  [Assets](http://pixelandtonic.com/assets) custom field in an ExpressionEngine 2.x site.  It will also take into account any usage of Solspace's *Gallery Extended* module, which allowed one to relate Gallery Entries to Weblog Entries. The process requires a bit of set up to successfully import both the Gallery Entries **and** relate them to any Channel Entries. Please follow these steps:
+
+1. Copy all ExpressionEngine 1.x Gallery image directories over to your EE 2.x site. As each Gallery could have its own directory, insure you bring them all over.
+2. Go into these directories and delete any and all thumb or medium images. They are no longer needed.
+3. Set up these Gallery directories as ExpressionEngine Upload Directories if they are not already.
+4. Go into the Assets module and index those Upload Directories so Assets can load all of the metadata for the images.
+5. Create a new Channel for the Gallery Entries to be imported into and insure to give it an Assets custom field.
+6. If you were using the Gallery Extended module to relate gallery entries to EE 1.x Weblog entries, create an Assets custom channel field in the ExpressionEngine 2.x channel for those weblog entries.
+7. As this is a complicated procedure, we recommend backing up your DB at this step.
+8. Go into Importer and set up a profile importing EE 1.x Gallery Entries into Assets. Follow the instructions and then import. During import, Importer will then go through all gallery entries and attempt to find the image in the Assets directories indexed in Step #4. If the gallery entries are related to a Weblog Entry (using Gallery Extended), it will search Expressionengine for that entry (to insure the entry from ExpressionEngine 1.x still exists in ExpressionEngine 2.x) and assign that Asset image to the Asset custom field for the related entry.
+9. In your templates, you will now have to use the Assets [custom field tags](http://pixelandtonic.com/assets/docs/templates) for displaying your images.
+10. If you wish to have multiple image sizes, we recommended that you use one of the image resizing + caching plugins found on [devot-ee](http://devot-ee.com/search/tags/tag/image-resize).
+
+-->
+
+<p><a name="ee_relationships"></a></p>
+
+<h2>EE Relationship Fields</h2>
+
+<p><strong>Data Source:</strong> EE Relationship custom fields</p>
+
+<p><strong>Valid Content Types:</strong> <a href="content_types.html#playa">P&amp;T Playa custom field</a></p>
+
+<p>ExpressionEngine Relationship fields allow you to relate a single channel entry per custom field and it will cache the data in ExpressionEngine's tables. The P&amp;T <a href="http://pixelandtonic.com/playa">Playa</a> field type allows you to relate <strong>multiple</strong> entries per custom field AND it does not cache it but instead looks up the entries during template processing. This allows better performance and expanded caching abilities.</p>
+
+<p>This essentially allows you to migrate/clone the data of 1 or more EE Relationship fields into a single Playa field. The exporting and importing of data happens all within existing EE channel entry data (you are not importing new data from an external file, etc).</p>
+
+<p>The set up for this is straightforward. You simply choose your Channel and all the Relationship fields you wish to import.</p>
+
+<p><a href="images/relationship_fields_to_playa.png"><img src="images/relationship_fields_to_playa.png" alt="click to enlarge" /></a></p>
+
+<p>And then, you choose the Playa field to import <strong>into</strong> and in which order you wish the Relationship fields to be imported.  <strong>Important Note:</strong> If the Playa field already has data, any imported data will be <em>appended</em> onto existing.  If a Related Entry being imported already exists in the Playa Field, it will be ignored and not imported.</p>
+
+<p><a href="images/relationships_into_playa.png"><img src="images/relationships_into_playa.png" alt="click to enlarge" /></a></p>
+
+<p><a name="playa_fields"></a></p>
+
+<h2>P&amp;T Playa Fields</h2>
+
+<p><strong>Data Source:</strong> P&amp;T <a href="http://pixelandtonic.com/playa">Playa</a> custom fields</p>
+
+<p><strong>Valid Content Types:</strong> P&amp;T <a href="content_types.html#playa">Playa custom field</a></p>
+
+<p>Importer has the ability to combine multiple P&amp;T <a href="http://pixelandtonic.com/playa">Playa</a> fields into a single <a href="http://pixelandtonic.com/playa">Playa</a> field. Works just like the ExpressionEngine Relationships field import (above), where you choose your Channel, your Playa fields, and then which Playa field you wish to import into and in what order.</p>
+
+<p>This essentially allows you to clone the data of 1 or more Playa fields into a single Playa field. The exporting and importing of data happens all within existing EE channel entry data (you are not importing new data from an external file, etc).</p>
+			</article>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+		<script src="assets/syntaxhighlighter/scripts/shCore.js"></script>
+		<script src="assets/syntaxhighlighter/scripts/shAutoloader.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>

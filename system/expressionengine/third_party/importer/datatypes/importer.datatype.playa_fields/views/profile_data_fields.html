@@ -1,0 +1,108 @@
+
+<script type="text/javascript">
+	
+(function($)
+{
+    $(document).ready(function($)
+    {
+        $('select[name="playa_fields_channel"]').change(function(e)
+	    {
+	        var that            = $(this);
+        
+	        if (that.val() == '')
+	        {
+	            $('select[name="playa_fields[]"]').hide();
+	            $('#no_playa_fields').show();
+	            return;
+            }
+            
+            $('#no_playa_fields').hide();
+            $('select[name="playa_fields[]"]').show();
+            
+            // Clean out current options
+            $('select[name="playa_fields[]"] option').remove();
+
+            // Go through the full select list and get the correct fields for channel	        
+	        $('select[name="all_playa_fields"] option').each(function()
+	        {
+	           // alert($(this).attr('channel-id') + ' ' + that.val());
+	            if ($(this).attr('channel-id') == that.val())
+	            {
+	                $('select[name="playa_fields[]"]').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
+	            }
+	        });
+	        
+	        if ($('select[name="playa_fields[]"] option').length == 0)
+	        {
+	            $('select[name="playa_fields[]"]').hide();
+	            $('#no_playa_fields').show();
+	        }
+	        
+	    });
+	    
+	    $('select[name="playa_fields_channel"]').val('<?=$selected_playa_fields_channel?>');
+	    $('select[name="playa_fields_channel"]').trigger('change');
+	    
+<?php foreach($selected_playa_fields AS $field_id) : ?>
+
+        $('select[name="playa_fields[]"] option[value="<?=$field_id?>"]').attr('selected', 'selected');
+
+<?php endforeach; ?>
+	    
+    });
+})(jQuery);
+	
+</script>
+
+
+
+<!-- SOURCE: Relationship Fields -->
+
+    <tr class="even for_playa_fields">
+        <td style="width:35%; vertical-align:top;">
+            <label for="playa_fields_channel"><?=lang('Choose Channel')?></label>
+        </td>
+        <td>
+            <select name="playa_fields_channel">
+                <option value=""><?=lang('Choose Channel')?></option>
+                <?php foreach($sites as $site_id => $site_label) :?>
+                    <?php if (empty($channels[$site_id])) continue; ?>
+                    <optgroup label="<?=$this->output($site_label)?>">
+                        <?php foreach($channels[$site_id] as $channel_id => $channel_label) :?>
+                            <option value="<?=$channel_id?>"><?=$channel_label?></option>
+                         <?php endforeach;?>
+                    </optgroup>
+                <?php endforeach;?>
+            </select>
+        </td>
+    </tr>
+
+
+    <tr class="odd for_playa_fields">
+        <td style="width:35%; vertical-align:top;">
+            <label for="playa_fields"><?=lang('Choose Playa Fields')?></label>
+            <div class="subtext"><?=lang('These are the fields you wish to import into Playa. On the next page you will indicate into which single Playa field these fields are imported and in what order.')?></div>
+        </td>
+        <td>
+            <?php if ( empty($playa_fields)) : ?>
+                <?=lang('Unable to Find Any Playa Fields')?>
+            <?php else: ?>
+                
+                <select name="playa_fields[]" multiple="multiple" size="5"></select>
+                
+                <span id="no_playa_fields"><?=lang('No Playa Fields Found')?></span>
+
+			    <select name="all_playa_fields" style="display:none;">
+			        <?php foreach($sites as $site_id => $site_label) :?>
+			            <?php if (empty($channels[$site_id])) continue; ?>
+                        <?php foreach($channels[$site_id] as $channel_id => $channel_label) :?>
+                            <?php foreach($playa_fields[$channel_id] AS $field_id => $field_label) : ?>
+                                <option value="<?=$field_id?>" channel-id="<?=$channel_id?>"><?=$field_label?></option>
+                            <?php endforeach;?>
+                        <?php endforeach;?>
+			        <?php endforeach;?>
+			    </select>
+                
+            <?php endif; ?>
+        </td>
+    </tr>

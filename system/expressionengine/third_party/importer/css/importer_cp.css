@@ -1,0 +1,58 @@
+.solspace_modal_overlay
+{
+	background-color:#fff;
+	display:none;
+	width:350px;
+	padding:15px;
+	text-align:left;
+	border:2px solid #333;
+	z-index: 100000;
+
+	-moz-border-radius:		6px;
+	-webkit-border-radius:	6px;
+	border-radius:			6px;
+	-moz-box-shadow:		0px 0px 10px 1px #333;
+	-webkit-box-shadow:		0px 0px 10px 1px #333;
+	box-shadow:				0px 0px 10px 1px #333;
+}
+
+.solspace_modal_overlay h2
+{
+	margin:0px auto;
+	text-align:center;
+	padding:10px 0 10px 0;
+	border-bottom:1px solid #333;
+	font-size:20px;
+}
+
+.solspace_modal_overlay p
+{
+	padding-top:10px;
+}
+
+.solspace_modal_overlay a.close {
+	/*background image applied in head*/
+	position:absolute;
+	right:-15px;
+	top:-15px;
+	cursor:pointer;
+	height:35px;
+	width:35px;
+}
+
+ul.importer_statistics ul
+{
+	list-style: disc;
+	padding: 3px 0 3px 25px;
+}
+
+#mainContent .pageContents p#solspace_version_number {
+	color:			#fff;
+	left: 			100%;
+	margin: 		-38px 0 0 -380px;
+	position: 		absolute;
+	text-align: 	right;
+	text-shadow: 	0 1px 0 #666;
+	width: 			300px;
+	z-index: 		10000;
+}

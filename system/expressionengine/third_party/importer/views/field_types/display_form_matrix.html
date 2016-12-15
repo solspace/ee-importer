@@ -1,0 +1,45 @@
+<td style="width: 30%; vertical-align:top;">
+<?php if ($field_data['field_required'] == 'y') :?>
+	<em class='required'>*</em>
+<?php endif; ?>
+
+<label for="field_id_<?=$field_id?>_element"><?=$field_data['field_label']?></label>
+	<div class="subtext">
+		<?=lang('matrix_field_type_subtext')?>
+	</div>
+
+</td>
+
+<?php if (isset($error)) : ?>
+	<td colspan="2" style="width: 70%; vertical-align:middle;">
+		<?=$error?>
+	<td>
+
+<?php else: ?>
+
+<td style="width: 40%;">
+			
+	<?php foreach($matrix_columns as $col_id => $col_data) : ?>
+		<p><label style="display:block;" for="<?=$col_id?>"><?=$col_data['label']?> (<?=$col_data['type']?>)</label>
+		<select name="<?=$col_id?>">
+			<option value=""></option>
+			<?php foreach ($element_options as $element => $example) :?>
+				<option value="<?=$element?>" <?=(($element == $selected[$col_id]) ? 'selected="selected"' : '')?>><?=$element?> - <?=lang('content_type_for_example')?> <?=$example?></option>
+			<?php endforeach; ?>
+		</select>
+		<br />
+	<?php endforeach; ?>
+</td>
+
+<td>
+	<!--
+	<a href="" rel="field_id_<?=$field_id;?>"><?=lang('importer_custom_field_default_show')?></a>
+	
+	<div id="custom_field_default_div_field_id_<?=$field_id;?>" style="display:none;">
+		<?php $name = 'importer_default_field_id_'.$field_id; ?>
+		<textarea name="default_field_id_<?=$field_id;?>"><?=${$name};?></textarea>
+	</div>
+	-->
+</td>
+
+<?php endif; ?>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>		<html class="no-js ie6"> <![endif]-->
+<!--[if IE 7]>			<html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js ie8"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html class="no-js"> <!--<![endif]-->
+	<head lang="en">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>File Sizes & Maximum Imports | Importer | Solspace Addon Documentation</title>
+		<meta name="description" content="" />
+		<meta name="copyright" content="(c) 2010 Copyright content: Copyright design: Solspace, Inc."/>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="assets/css/normalize.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="assets/fancybox/jquery.fancybox-1.3.4.css" />
+		<link href="assets/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+		<link href="assets/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+		<script src="assets/js/modernizr.min.js"></script>
+	</head>
+	<body>
+		<!--[if lt IE 8]>
+			<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+		<![endif]-->
+
+		<header>
+			<div class="header-inner">
+				<div class="logo">
+					<img src="assets/images/logo.png" />
+				</div>
+
+				<div class="bread_crumbs">
+					<ul class="crumbs">
+						<li class="first"><a href="index.html">Importer</a></li>
+						<li>File Sizes & Maximum Imports</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<div class="content-wrapper">
+			<nav class="toc">
+				<ul>
+<li><a href="https://solspace.com/expressionengine/importer/">More Info | Purchase</a></li>
+<li><a href="change_log.html">Change Log</a></li>
+<li><a href="install_update.html">Install / Update</a></li>
+<li><a href="control_panel.html">Control Panel</a></li>
+<li><a href="data_types.html">Data Types</a></li>
+<li><a href="content_types.html">Content Types</a></li>
+<li><a href="data_sources.html">Data Sources</a></li>
+<li class="current"><a href="file_sizes_max_imports.html">File Sizes &amp; Maximum Imports</a></li>
+<li><a href="cron_importing.html">Cron Importing</a></li>
+<li><a href="third_party_support.html">Third Party Add-on Support</a></li>
+<li><h3>Requirements</h3><div class="requirements">
+
+<ul>
+<li>EE 2.10.x</li>
+<li>PHP 5.2+</li>
+<li>MySQL 5+</li>
+<li>All modern browsers or IE 10+</li>
+</ul></div></li>
+</ul>
+			</nav>
+
+			<article class="docs">
+				<p>Importing and processing data can take up a fair amount of resources on your server.  When your data source is a file, the larger the file and the more complex its structure, the more resources will be used up. Because of this, there might be a limit to how large of a CSV, JSON, or XML file your server might be able to import using the Importer module. The resource most likely to be used up is the amount of memory allocated to PHP. We have a couple tips to increase this limit.</p>
+
+<p><a name="dynamic_memory_increasing"></a></p>
+
+<h2>Dynamic Memory Increasing</h2>
+
+<p>First, Importer has a built in method that will dynamically attempt to increase the memory allocated to PHP during the import, if it detects that the import is about to use up the available memory. The maximum limit that Importer will attempt to raise the allocated memory to is <strong>500MB</strong>, which is to insure that importing does not cause problems with your server. The increase is <em>temporary</em> and will only last the length of the import. This feature will only work on servers that allow it and will happen seamlessly behind the scenes. It will not guarantee that large imports will perform flawlessly, but it should help.</p>
+
+<p><a name="increasing_memory_in_htaccess"></a></p>
+
+<h2>Increasing Memory in .htaccess</h2>
+
+<p>Some hosts will allow you to increase the PHP memory limit in your <em>.htaccess</em> file. Check with your host first and insure this is allowed. Also, see if there is a maximum limit they recommend. Other people may be hosted on your server and it would be inappropriate to continually use up large chunks of memory.</p>
+
+<p>If this is allowed, it is a rather simple. Simply add this to the top of your <em>.htaccess</em> file:</p>
+
+<pre class="brush: html;">php_value memory_limit 256M </pre>
+
+<p>You can see your current memory limit by looking in the <em>Tools =&#62; Utilities =&#62; PHP</em> Info section of the ExpressionEngine CP. Do a quick search for <strong>memory_limit</strong> and you should locate it. NOTE: The <strong>M</strong> on the end stands for <strong>MB</strong>. Insure you use M though as PHP will not recognize <strong>MB</strong>.</p>
+
+<p><a name="increasing_memory_in_phpini"></a></p>
+
+<h2>Increasing Memory in php.ini</h2>
+
+<p>If you are hosting your own server or are in control of your own server, you likely can modify the php.ini file, which controls all of PHP's default configuration options. You can find its location by looking at the <em>Tools =&#62; Utilities =&#62; PHP Info</em> section of the ExpressionEngine CP. Again, talk with your server administrator before modifying any values in this file.</p>
+
+<p>To modify the memory limit, do a search for <strong>memory_limit</strong> and modify the value. If there is a hash (<strong>&#35;</strong>) before the line, you will have to remove it. Once you make the change and save the file, you will have to restart Apache to have the change take effect.</p>
+			</article>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+		<script src="assets/syntaxhighlighter/scripts/shCore.js"></script>
+		<script src="assets/syntaxhighlighter/scripts/shAutoloader.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>
